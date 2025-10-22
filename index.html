@@ -503,12 +503,13 @@ ease;
   top:10px; right:10px;
   width:40px; height:40px;
   border:none; border-radius:50%;
-  background:#fff; color:var(--primary-blue);
+  background:var(--primary-blue);
+  color: white;
   display:flex; align-items:center; justify-content:center;
   box-shadow:0 2px 8px rgba(0,0,0,.15);
   transition:background .2s,color .2s, transform .15s;
 }
-.expand-btn:hover{ background:var(--primary-blue); color:#fff; transform:translateY(-1px); }
+.expand-btn:hover{ color:var(--primary-blue); background:#fff; transform:translateY(-1px); }
 
 .news-indicators .active {
     background: var(--primary-blue) !important ;
@@ -1213,7 +1214,12 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
         </article>
 
         <!-- empty spacer so the last slide visually balances on large screens -->
-        <div class="news-tile news-spacer d-none d-lg-block"></div>
+        <div class="news-tile">
+          <h3 class="news-title">Promising Findings for Express! for EL Students</h3>
+          <p class="news-blurb">Students using Express! show statistically significant gains in reading comprehension and oral reading fluency on standardized reading tests.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/Research-Site/Attleboro+Report+Final.pdf">Read Now →</a>
+ 
+        </div>
       </div>
     </div>
   </div>
@@ -1327,7 +1333,17 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             <div class="tab-pane fade" id="v-pills-writing" role="tabpanel"><h4>Integrated Writing</h4><p>Content for integrated writing.</p></div>
                             <div class="tab-pane fade" id="v-pills-learners" role="tabpanel"><h4>Meeting the Needs of All Learners</h4><p>Content for meeting learner needs.</p></div>
                         </div>
+                        
                     </div>
+                </div>
+                <div class="eyebrow-banner mt-5">
+                  <div class="eyebrow-text">
+                    <strong>Take a closer look at the teacher and student materials</strong>
+                  </div>
+                  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28" target="_blank" rel="noopener" class="eyebrow-btn">
+                    <i class="fa-solid fa-book-open"></i>
+                    View Virtual Sampler
+                  </a>
                 </div>
             </div>
         </section>
@@ -1399,6 +1415,15 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             <div class="tab-pane fade" id="v-pills-biliteracy-research" role="tabpanel"><h4>Research & Efficacy</h4><p>Content for biliteracy research.</p></div>
                         </div>
                     </div>
+                </div>
+                <div class="eyebrow-banner mt-5">
+                  <div class="eyebrow-text">
+                    <strong>Take a closer look at the teacher and student materials</strong>
+                  </div>
+                  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28" target="_blank" rel="noopener" class="eyebrow-btn">
+                    <i class="fa-solid fa-book-open"></i>
+                    View Virtual Sampler
+                  </a>
                 </div>
             </div>
         </section>
@@ -1475,6 +1500,15 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                         </div>
                     </div>
                 </div>
+                <div class="eyebrow-banner mt-5">
+                  <div class="eyebrow-text">
+                    <strong>Take a closer look at the teacher and student materials</strong>
+                  </div>
+                  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28" target="_blank" rel="noopener" class="eyebrow-btn">
+                    <i class="fa-solid fa-book-open"></i>
+                    View Virtual Sampler
+                  </a>
+                </div>
             </div>
         </section>
 
@@ -1546,52 +1580,8 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                          
                         </div>
                     </div>
-                    <hr class="my-5">
-                                <div class="row section-intro off-tab-content">
-  <div class="col wow animate__animated animate__fadeInUp">
 
-      <div class="row align-items-center">
-        <!-- LEFT: Text -->
-        <div class="col-lg-6 pe-lg-5">
-              <h4>Caregiver Support</h4>
-
-          <h5 class="pb-3">Bridge Connections Between School and Home</h5>
-          <p class="mt-2">
-            Benchmark Advance enhances communication between school and home. 
-            Through Benchmark Universe, families have 24/7 access on any device 
-            to all learning resources and texts.
-          </p>
-
-          <h5 class="pb-2">Family support includes:</h5>
-          <ul class="mb-4">
-            <li><strong>Unit Welcome Letter</strong> – Available in multiple languages, these letters include fun, at-home activity suggestions that build vocabulary, comprehension, topic knowledge, and phonics and word study skills.</li>
-            <li><strong>Unit Take-Home Activity Calendar</strong> – Each unit includes three weekly activities designed to reinforce prior learning at home.</li>
-          </ul>
-
-          <p class="mb-4">
-            Check out the Benchmark Advance Family Support website, available in English and Spanish.
-          </p>
-
-          
-          <a target="_blank" href="https://www.benchmarkeducation.com/families
-" class="authors-link">Learn More
- &rarr;</a>
-        </div>
-
-
-
-        <!-- RIGHT: Image -->
-        <div class="col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center align-items-center">
-          <img src="images/ba_families.jpg"
-               alt="Family using Benchmark Advance resources at home"
-               class="img-fluid rounded-3 shadow-sm wow animate__animated animate__fadeInRight"
-               data-wow-delay="0.3s">
-        </div>
-    </div>
-  </div>
-</div>
-
-          <div class="eyebrow-banner mt-4">
+          <div class="eyebrow-banner mt-5">
   <div class="eyebrow-text">
     <strong>Take a closer look at the teacher and student materials</strong>
   </div>
@@ -1605,7 +1595,55 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
             </div>
         </section>
 
+        <section id="digital-experience" class="bg-white">
+          <div class="container">
+            <div class="row section-intro off-tab-content">
 
+              <div class="col wow animate__animated animate__fadeInUp">
+            
+                  <div class="row align-items-center">
+                    <!-- LEFT: Text -->
+                    <div class="col-lg-6 pe-lg-5">
+                          <h2>Caregiver Support</h2>
+            
+                      <h3 class="pb-3">Bridge Connections Between School and Home</h3>
+                      <p class="mt-2">
+                        Benchmark Advance enhances communication between school and home. 
+                        Through Benchmark Universe, families have 24/7 access on any device 
+                        to all learning resources and texts.
+                      </p>
+            
+                      <h5 class="pb-2">Family support includes:</h5>
+                      <ul class="mb-4">
+                        <li><strong>Unit Welcome Letter</strong> – Available in multiple languages, these letters include fun, at-home activity suggestions that build vocabulary, comprehension, topic knowledge, and phonics and word study skills.</li>
+                        <li><strong>Unit Take-Home Activity Calendar</strong> – Each unit includes three weekly activities designed to reinforce prior learning at home.</li>
+                      </ul>
+            
+                      <p class="mb-4">
+                        Check out the Benchmark Advance Family Support website, available in English and Spanish.
+                      </p>
+            
+                      
+                      <a target="_blank" href="https://www.benchmarkeducation.com/families
+            " class="authors-link">Learn More
+             &rarr;</a>
+                    </div>
+            
+            
+            
+                    <!-- RIGHT: Image -->
+                    <div class="col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center align-items-center">
+                      <img src="images/ba_families.jpg"
+                           alt="Family using Benchmark Advance resources at home"
+                           class="img-fluid rounded-3 shadow-sm wow animate__animated animate__fadeInRight"
+                           data-wow-delay="0.3s">
+                    </div>
+                </div>
+              </div>
+              </div>
+            
+          </div>
+          </section>
 
     </main>
     
