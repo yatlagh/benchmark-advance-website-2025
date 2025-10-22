@@ -234,6 +234,11 @@
         section { padding: 80px 0; }
         .section-intro h2 { font-weight: 700; color: var(--primary-blue); }
         h3 { font-size:1.5rem; color: var(--primary-blue); }
+        .dropdown-item.active, .dropdown-item:active {
+    color: initial;
+    text-decoration: none;
+    background-color: transparent;
+}
         /* --- General Feature Box Styles --- */
 .feature-box {
   display: flex;
@@ -828,7 +833,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                                         <li><a class="dropdown-item" href="#v-pills-coaching" data-bs-parent-section="#professional-learning">Demonstration Lessons and Coaching</a></li>
                                         <li><a class="dropdown-item" href="#v-pills-embedded" data-bs-parent-section="#professional-learning">Embedded Tools & Support</a></li>
 
-                                         <li><a class="dropdown-item" href="#caregiversupport">Caregiver Support</a></li>
+                                         <li><a class="dropdown-item" href="#caregiver">Caregiver Support</a></li>
                                        
                                     </ul>
                                 </li>
@@ -1595,7 +1600,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
             </div>
         </section>
 
-        <section id="digital-experience" class="bg-white">
+        <section id="caregiver" class="bg-white">
           <div class="container">
             <div class="row section-intro off-tab-content">
 
@@ -1654,87 +1659,103 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
     <!-- WOW.js for animations on scroll --><script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 
-    <!-- Custom JavaScript --><script>
-        document.addEventListener('DOMContentLoaded', function () {
-  // WOW
-  new WOW().init();
-
-  const mainNav = document.getElementById('mainNav');
-  const mainNavWrapper = document.getElementById('mainNavWrapper');
-
-  // --- Sticky nav
-  const navOffsetTop = mainNav.offsetTop;
-  function navH() { return mainNav?.offsetHeight || 0; }
-  function setWrapperHeight() { mainNavWrapper.style.height = mainNav.classList.contains('sticky-nav') ? navH() + 'px' : 'auto'; }
-
-  window.addEventListener('scroll', () => {
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+   // WOW
+   new WOW().init();
+  
+   const mainNav = document.getElementById('mainNav');
+   const mainNavWrapper = document.getElementById('mainNavWrapper');
+  
+   // --- Sticky nav
+   const navOffsetTop = mainNav.offsetTop;
+   function navH() { return mainNav?.offsetHeight || 0; }
+   function setWrapperHeight() { mainNavWrapper.style.height = mainNav.classList.contains('sticky-nav') ? navH() + 'px' : 'auto'; }
+  
+   window.addEventListener('scroll', () => {
     if (window.pageYOffset > navOffsetTop) mainNav.classList.add('sticky-nav');
     else mainNav.classList.remove('sticky-nav');
     setWrapperHeight();
-  }, { passive: true });
-  window.addEventListener('resize', setWrapperHeight);
-  setWrapperHeight();
-
-  // --- Smooth scroll helper (scroll to a section top with offset)
-  function smoothScrollToSection(sectionSelector) {
+   }, { passive: true });
+   window.addEventListener('resize', setWrapperHeight);
+   setWrapperHeight();
+  
+   // --- Smooth scroll helper (scroll to a section top with offset)
+   function smoothScrollToSection(sectionSelector) {
     const el = document.querySelector(sectionSelector);
-    if (!el) return;
+    if (!el) {
+          console.warn('smoothScrollToSection: Element not found', sectionSelector);
+          return;
+      }
+      // Recalculate nav height *at the moment of scrolling*
     const y = el.getBoundingClientRect().top + window.pageYOffset - (navH() + 20);
     window.scrollTo({ top: y, behavior: 'smooth' });
-  }
-
-  // --- Top-level link smooth scroll (unchanged)
-  const navLinks = mainNav.querySelectorAll('.nav-link:not(.dropdown-toggle)');
-  const dropdownToggles = mainNav.querySelectorAll('.dropdown-toggle');
-  [...navLinks, ...dropdownToggles].forEach(link => {
+   }
+  
+   // --- Top-level link smooth scroll
+   const navLinks = mainNav.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+   const dropdownToggles = mainNav.querySelectorAll('.dropdown-toggle');
+   [...navLinks, ...dropdownToggles].forEach(link => {
     const href = link.getAttribute('href') || '';
     link.addEventListener('click', (e) => {
-      const isToggle = link.classList.contains('dropdown-toggle');
-      if (!isToggle && href.startsWith('#')) {
-        e.preventDefault();
-        smoothScrollToSection(href);
-      } else if (isToggle && window.innerWidth < 992 && href.startsWith('#')) {
-        e.preventDefault();
-        smoothScrollToSection(href);
-      }
-    });
-  });
-
-  // --- Dropdown items: show tab, THEN scroll section to top
-  const dropdownItems = mainNav.querySelectorAll('.dropdown-item');
-  dropdownItems.forEach(item => {
-    item.addEventListener('click', (e) => {
+     const isToggle = link.classList.contains('dropdown-toggle');
+     if (!isToggle && href.startsWith('#')) {
       e.preventDefault();
-
-      const sectionSelector = item.dataset.bsParentSection; // e.g. "#instruction"
-      const pillTarget = item.getAttribute('href');          // e.g. "#v-pills-phonics"
-      const pillBtn = document.querySelector(`${sectionSelector} [data-bs-target='${pillTarget}']`);
-
-      if (pillBtn) {
-        // Scroll after the tab becomes visible (content height can change)
-        const onShown = () => {
-          pillBtn.removeEventListener('shown.bs.tab', onShown);
-          smoothScrollToSection(sectionSelector);
-        };
-        pillBtn.addEventListener('shown.bs.tab', onShown, { once: true });
-
-        const tab = bootstrap.Tab.getOrCreateInstance(pillBtn);
-        tab.show();
-      } else {
-        // Fallback: just scroll to the section
-        smoothScrollToSection(sectionSelector);
-      }
-
-      // Close the dropdown + mobile collapse if open
-      const ddToggle = item.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
-      if (ddToggle) bootstrap.Dropdown.getOrCreateInstance(ddToggle).hide();
-      const navCollapse = document.getElementById('navbarNav');
-      if (navCollapse && window.getComputedStyle(navCollapse).display !== 'none') {
-        bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false }).hide();
-      }
+      smoothScrollToSection(href);
+     } else if (isToggle && window.innerWidth < 992 && href.startsWith('#')) {
+          // This handles scrolling when clicking a dropdown TOGGLE on mobile
+      e.preventDefault();
+      smoothScrollToSection(href);
+     }
     });
+   });
+  
+   // --- Dropdown items: show tab OR just scroll
+   const dropdownItems = mainNav.querySelectorAll('.dropdown-item');
+   dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+     e.preventDefault();
+        
+        const pillTarget = item.getAttribute('href'); // e.g. "#v-pills-phonics" OR "#caregiversupport"
+     const sectionSelector = item.dataset.bsParentSection; // e.g. "#instruction" OR undefined
+  
+        // --- START: MODIFIED LOGIC ---
+        if (sectionSelector) {
+          // --- This is a TAB-switching link ---
+         const pillBtn = document.querySelector(`${sectionSelector} [data-bs-target='${pillTarget}']`);
+      
+         if (pillBtn) {
+          if (pillBtn.classList.contains('active')) {
+                  // If tab is already active, just scroll
+           smoothScrollToSection(sectionSelector);
+          } else {
+                  // If tab is not active, show it, THEN scroll
+           pillBtn.addEventListener('shown.bs.tab', () => {
+            smoothScrollToSection(sectionSelector);
+           }, { once: true });
+           const tab = bootstrap.Tab.getOrCreateInstance(pillBtn);
+           tab.show();
+          }
+         } else {
+              // Fallback: just scroll to the parent section
+          smoothScrollToSection(sectionSelector);
+         }
+        } else if (pillTarget && pillTarget.startsWith('#')) {
+          // --- This is a SIMPLE SCROLL link (like "Caregiver Support") ---
+          smoothScrollToSection(pillTarget);
+        }
+        // --- END: MODIFIED LOGIC ---
+  
+     // Close the dropdown + mobile collapse if open
+     const ddToggle = item.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
+     if (ddToggle) bootstrap.Dropdown.getOrCreateInstance(ddToggle).hide();
+     const navCollapse = document.getElementById('navbarNav');
+     if (navCollapse && window.getComputedStyle(navCollapse).display !== 'none') {
+      bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false }).hide();
+     }
+    });
+   });
   });
-});
     </script>
     <!-- Chart.js + DataLabels -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
