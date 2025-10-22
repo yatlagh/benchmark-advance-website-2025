@@ -130,6 +130,7 @@
   max-height: 120px;           /* keeps logos tidy */
   width: auto;
 }
+.student-with-books { max-width:500px }
 .award-body { display: flex; flex-direction: column; gap: .25rem; }
 .award-eyebrow {
   text-transform: uppercase;
@@ -528,7 +529,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 [data-scroll-anchor="true"] { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
         .tab-content { padding-left: 3rem; }
-        .tab-content h4 { font-weight: 700; color: var(--primary-blue) !important; }
+        .tab-content h4, .off-tab-content h4 { font-weight: 700; color: var(--primary-blue) !important; }
         .tab-content p { font-size: 1.05rem; line-height: 1.7; }
 
         @media (max-width: 991.98px) {
@@ -599,7 +600,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                         </div>
                     </div>
                     <div class="col-lg-6 text-center wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
-                        <img src="images/bec-img1.png" alt="Student with books" class="img-fluid">
+                        <img src="images/bec-img1.png" alt="Student with books" class="img-fluid student-with-books">
                     </div>
                 </div>
             </div>
@@ -667,6 +668,8 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                                         <li><a class="dropdown-item" href="#v-pills-virtual" data-bs-parent-section="#professional-learning">On-Demand Virtual Learning</a></li>
                                         <li><a class="dropdown-item" href="#v-pills-coaching" data-bs-parent-section="#professional-learning">Demonstration Lessons and Coaching</a></li>
                                         <li><a class="dropdown-item" href="#v-pills-embedded" data-bs-parent-section="#professional-learning">Embedded Tools & Support</a></li>
+
+                                         <li><a class="dropdown-item" href="#caregiversupport">Caregiver Support</a></li>
                                        
                                     </ul>
                                 </li>
@@ -1437,7 +1440,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
             </div>
         </section>
 
-        <!-- Section 5: Professional Learning --><section id="professional-learning">
+        <!-- Section 5: Professional Learning --><section>
             <div class="container">
               <div class="row section-intro">
   <div class="col wow animate__animated animate__fadeInUp">
@@ -1484,7 +1487,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
 
                 <hr class="my-5">
-                <div class="row">
+                <div class="row" id="professional-learning">
                      <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
                            <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
@@ -1505,21 +1508,16 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                          
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Connected Solutions --><section id="connected-solutions" class="bg-white">
-            <div class="container">
-              <div class="row section-intro">
+                    <hr class="my-5">
+                                <div class="row section-intro off-tab-content">
   <div class="col wow animate__animated animate__fadeInUp">
 
       <div class="row align-items-center">
         <!-- LEFT: Text -->
         <div class="col-lg-6 pe-lg-5">
-              <h2>Caregiver Support</h2>
+              <h4>Caregiver Support</h4>
 
-          <h3 class="pb-3">Bridge Connections Between School and Home</h3>
+          <h5 class="pb-3">Bridge Connections Between School and Home</h5>
           <p class="mt-2">
             Benchmark Advance enhances communication between school and home. 
             Through Benchmark Universe, families have 24/7 access on any device 
@@ -1554,6 +1552,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
     </div>
   </div>
 </div>
+
           <div class="eyebrow-banner mt-4">
   <div class="eyebrow-text">
     <strong>Take a closer look at the teacher and student materials</strong>
@@ -1564,15 +1563,11 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
     View Virtual Sampler
   </a>
 </div>
-                <hr class="my-5">
-         <!--        <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h4>Overview</h4>
-                        <p>Information about how Benchmark Advance connects with other solutions and platforms to create a cohesive educational ecosystem.</p>
-                    </div>
-                </div> -->
+                </div>
             </div>
         </section>
+
+
 
     </main>
     
