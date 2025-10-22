@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benchmark Advance | Knowledge-Based Literacy Solution</title>
+
+    <!-- Preconnect for Google Fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts: Montserrat --><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS --><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Font Awesome CSS --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Animate.css --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom Styles --><style>
+        :root {
+            --primary-blue: #304077;
+            --light-blue-bg: #EDF6FF;
+            --accent-red: #C14642;
+            --text-dark: #1B1F3B;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-blue-bg);
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        /* --- Navigation --- */
+        #mainNavWrapper {
+            transition: height 0.3s;
+        }
+        .navbar {
+            background-color: #fff;
+            padding: 0;
+            width: 100%;
+            z-index: 1030;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 0;
+        }
+        
+        .navbar.sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: slideDown 0.3s ease-out;
+            border-top: 1px solid var(--border-color); /* keep top border when sticky */
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .navbar-toggler { border: none; margin: 1rem; }
+        .navbar-toggler:focus { box-shadow: none; }
+
+        /* Full-bleed nav (match viewport width) */
+        .navbar .container, 
+        .navbar .container-fluid { padding-left: 0 !important; padding-right: 0 !important; }
+
+        /* Equal-width top-level items across the full width */
+        .navbar-nav {
+            display: flex;
+            width: 100%;
+            border-bottom: none;
+            align-items: stretch;
+        }
+        .navbar-nav > .nav-item {
+            flex: 1 1 0;
+            min-width: 0;
+            text-align: center;
+            border-right: 1px solid var(--border-color);
+        }
+        .navbar-nav > .nav-item:first-child { border-left: 1px solid var(--border-color); }
+        .navbar-nav > .nav-item:last-child { border-right: 1px solid var(--border-color); } /* keep divider after contact for symmetry */
+
+        .nav-item a.nav-link { cursor: pointer; }
+
+        .navbar-nav .nav-link {
+            width: 100%;
+            color: var(--text-dark);
+            border: none;
+            border-bottom: 4px solid transparent;
+            font-weight: 600;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        /* Soft container panel */
+.panel {
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.panel-soft {
+  background: var(--light-blue-bg);
+}
+
+/* Award cards */
+.award-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.media-box {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;               /* consistent image area height */
+}
+.media-img {
+  max-height: 120px;           /* keeps logos tidy */
+  width: auto;
+}
+.award-body { display: flex; flex-direction: column; gap: .25rem; }
+.award-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0;
+}
+.award-title {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Quote */
+.quote-block {
+  background: rgba(255,255,255,.55);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+.quote-block .quote-mark {
+  font-size: 2rem;
+  line-height: 0;
+  color: rgba(48,64,119,.25); /* subtle primary tint */
+}
+.quote-block blockquote {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #4a5568;
+}
+.quote-cite {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            border-bottom-color: var(--primary-blue);
+            color: var(--primary-blue);
+            background-color: transparent;
+        }
+        
+        .dropdown-menu {
+            border-radius: 0.5rem;
+            border-color: #ddd;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        }
+        .dropdown-item { font-weight: 500; }
+        .dropdown-item:active { background-color: var(--primary-blue); }
+
+        /* --- Buttons --- */
+        .btn {
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Contact (same width as others, red background) */
+        .nav-item.contact-btn-item { flex: 1 1 0; margin: 0; padding: 0; display: flex; }
+        .contact-btn {
+            background-color: var(--accent-red);
+            color: #fff !important;
+            border-radius: 0;
+            padding: 1.5rem 1rem;
+            white-space: nowrap;
+            height: 100%;
+            width: 100%;
+            border: none;
+            border-bottom: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar .contact-btn:hover, .navbar .contact-btn:focus {
+            background-color: #a53a36 !important;
+            color: #fff !important;
+            border-bottom-color: transparent !important;
+        }
+        /* Allow wrapping of nav link text to prevent overlap */
+.navbar-nav .nav-link {
+    white-space: normal;      /* allow text to wrap */
+    word-break: break-word;   /* break long words if needed */
+    text-align: center;       /* keep it visually balanced */
+    line-height: 1.2;         /* tighter spacing for wrapped text */
+}
+
+        /* --- Hero Section --- */
+        .hero { background-color: #fff; position: relative; }
+        .hero h1 { color: var(--primary-blue); font-weight: 700; }
+        .hero .btn-primary { background-color: var(--accent-red); border-color: var(--accent-red); }
+        .hero .btn-primary:hover { background-color: #a53a36; border-color: #a53a36; }
+        .hero .btn-outline-primary { color: var(--primary-blue); border-color: var(--primary-blue); }
+        .hero .btn-outline-primary:hover { background-color: var(--primary-blue); color: #fff; }
+
+        /* --- Section Styling --- */
+        section { padding: 80px 0; }
+        .section-intro h2 { font-weight: 700; color: var(--primary-blue); }
+        h3 { font-size:1.5rem; color: var(--primary-blue); }
+        /* --- General Feature Box Styles --- */
+.feature-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.image-box {
+  background-color: #fff;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.feature-image {
+  max-width: 36%; /* 40% smaller than before */
+  height: auto;
+}
+
+.feature-title {
+  font-weight: 700;
+  color: #2e3a75;
+  margin-bottom: 0.75rem;
+}
+
+.feature-text {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #1f2432;
+}
+
+.feature-link {
+  color: #304077;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.feature-link:hover {
+  color: #1b285a;
+  text-decoration: underline;
+}
+
+
+/* CHART Panel container */
+.research-panel {
+  background: var(--light-blue-bg, #f5f8ff);
+  border-radius: 1rem;
+  padding: 2rem 1.25rem;
+}
+
+.readmore { color:var(--primary-blue) !important }
+
+/* Intro text */
+.research-intro {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.chart-card {
+  background: #fff;
+  border: 1px solid #e2e7f0;
+  border-radius: 12px;
+  padding: .85rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.chart-title {
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #1f2a55;
+  margin-bottom: .4rem;
+}
+
+/* Canvas sizing (controlled, responsive) */
+.chart-canvas {
+  display: block;
+  width: 100% !important;
+  /* height is set by the helper size classes below */
+}
+.chart-mini  { height: 170px !important; max-height: 170px !important; }
+.chart-large { height: 280px !important; max-height: 280px !important; }
+
+/* Footnote paragraph */
+.chart-description {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: .95rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.testi-copy .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  color: #707a8a;
+}
+.testi-copy .accent { color: var(--primary-blue); }
+
+/* Video */
+.video-box {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(48, 64, 119, 0.10);
+}
+.video-thumb { width: 100%; height: auto; display: block; }
+.play-ring {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+}
+.play-ring::before {
+  content: "";
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.55);
+  transition: transform .25s ease, background .25s ease;
+}
+.play-triangle {
+  position: absolute;
+  width: 0; height: 0;
+  border-left: 34px solid var(--primary-blue);
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  margin-left: 8px;
+}
+/* Panel & eyebrow */
+.news-panel {
+  background: var(--light-blue-bg, #edf6ff);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.news-eyebrow {
+  background: #222; /* dark eyebrow */
+  color: #fff;
+  padding: .5rem .75rem;
+}
+
+.bu-badge { max-width:120px }
+.bu-logo { max-width:280px }
+
+/* Card inside the carousel */
+.news-card {
+  background: #fff;
+  border: 1px solid #e2e7f0;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  max-width: 680px;
+  min-height: 240px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+/* hide arrows on the News carousel */
+#newsCarousel .carousel-control-prev,
+#newsCarousel .carousel-control-next {
+  display: none !important;
+}
+/* Make the card align flush with the title in the tab pane */
+#v-pills-news .news-panel { 
+  padding: 0 0 1rem;             /* remove side padding that pushed the card */
+}
+
+#v-pills-news .carousel-inner { 
+  padding: 0 !important;         /* remove Bootstrap padding on the inner track */
+}
+
+#v-pills-news .news-card {
+  max-width: 100% !important;    /* full width within the column */
+  margin-left: 0 !important; 
+  margin-right: 0 !important;
+  border-radius: 24px;            /* keep the nice rounded look */
+}
+
+/* keep the dots centered with a little breathing room */
+#newsCarousel .news-indicators {
+  margin-bottom: .25rem;
+}
+.news-title {
+  color: #71767c;            /* headline blue like your mock */
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: .5rem;
+}
+.news-blurb {
+  color: #2b2f3a;
+  margin-bottom: 1rem;
+}
+
+/* CTA button */
+
+.btn-news {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #c14742;
+    text-decoration: none;
+    border: 2px solid #c14742;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    transition: all 0.3s 
+ease;
+
+
+}
+.instruction-media img { display:block; }
+.expand-btn{
+  position:absolute;
+  top:10px; right:10px;
+  width:40px; height:40px;
+  border:none; border-radius:50%;
+  background:#fff; color:var(--primary-blue);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+  transition:background .2s,color .2s, transform .15s;
+}
+.expand-btn:hover{ background:var(--primary-blue); color:#fff; transform:translateY(-1px); }
+
+.news-indicators .active {
+    background: var(--primary-blue) !important ;
+}
+.btn-news:hover { background: #1f66b5; color: #fff; }
+
+/* Arrows / dots */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1) grayscale(1);
+}
+.news-indicators [data-bs-target] {
+  width: 28px; height: 4px; border: none; border-radius: 2px;
+  background: rgba(0,0,0,.15);
+}
+.news-indicators .active { background: #2a7bd8; }
+
+/* Bottom strip */
+.news-strip {
+  background: rgba(255,255,255,.8);
+  border-top: 1px solid #e2e7f0;
+  padding: .85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+.strip-link {
+  color: var(--primary-blue, #304077);
+  text-decoration: none;
+  font-weight: 800;
+}
+.strip-link:hover { text-decoration: underline; }
+.video-box:hover .play-ring::before { transform: scale(1.06); background: rgba(255,255,255,.75); }
+
+/* Modal reading experience */
+#testimonialsModal blockquote { font-size: 1rem; line-height: 1.75; color: #1f2432; }
+#testimonialsModal .accordion-button { font-weight: 700; color: var(--primary-blue); }
+#testimonialsModal .accordion-button:not(.collapsed) { background: #f5f7ff; }
+
+/* Tighten on small screens */
+@media (max-width: 575.98px) {
+  .chart-mini  { height: 160px !important; }
+  .chart-large { height: 260px !important; }
+} 
+/*End CHART STYLES*/
+
+        .authors-link {
+            display: inline-block; margin-top: 1rem; font-weight: 600; color: var(--primary-blue);
+            text-decoration: none; border: 2px solid var(--primary-blue); padding: 0.5rem 1.25rem;
+            border-radius: 50px; transition: all 0.3s ease;
+        }
+        .authors-link:hover { background-color: var(--primary-blue); color: #fff; }
+        
+        /* --- Left Rail Navigation (Vertical Pills) --- */
+        .left-rail {
+            background: #fff; padding: 1rem 0; border-radius: 0.75rem;
+            box-shadow: 0 8px 25px rgba(48, 64, 119, 0.07);
+        }
+        .left-rail .nav-pills .nav-link {
+            text-align: left; padding: 1rem 1.5rem; color: var(--text-dark);
+            font-weight: 600; border-left: 4px solid transparent; border-radius: 0;
+            background-color: transparent; transition: all 0.2s ease-in-out;
+        }
+        .left-rail .nav-pills .nav-link:hover { background-color: var(--light-blue-bg); color: var(--primary-blue); }
+        .left-rail .nav-pills .nav-link.active, .left-rail .nav-pills .show > .nav-link {
+            color: var(--primary-blue); background-color: transparent; border-left-color: var(--primary-blue);
+        }
+        /* Make in-page scroll land below the sticky navbar */
+:root { --nav-height: 0px; }
+section { scroll-margin-top: calc(var(--nav-height) + 20px); }
+/* Optional: if you sometimes scroll to inner elements like pill buttons */
+[data-scroll-anchor="true"] { scroll-margin-top: calc(var(--nav-height) + 20px); }
+
+        .tab-content { padding-left: 3rem; }
+        .tab-content h4 { font-weight: 700; color: var(--primary-blue) !important; }
+        .tab-content p { font-size: 1.05rem; line-height: 1.7; }
+
+        @media (max-width: 991.98px) {
+            .tab-content { padding-left: 0; padding-top: 2rem; }
+        }
+
+        /* --- Video Popup --- */
+        .video-container { position: relative; cursor: pointer; border-radius: 1rem; overflow: hidden; display: inline-block; }
+        .video-container .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80px; height: 80px; background-color: rgba(255, 255, 255, 0.9); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; pointer-events: none;
+        }
+        .video-container:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background-color: #fff; }
+        .video-container .play-button i { font-size: 2.5rem; color: var(--primary-blue); margin-left: 5px; }
+
+        /* --- Responsive Enhancements --- */
+        @media (max-width: 1399.98px) { .navbar-nav .nav-link { padding: 1.5rem 0.75rem; font-size: 0.9rem; } }
+        @media (max-width: 1199.98px) { .navbar-nav .nav-link { padding: 1.5rem 0.5rem; font-size: 0.8rem; } }
+        @media (max-width: 991.98px) {
+            .hero { text-align: center; }
+            .hero .d-flex { justify-content: center !important; }
+            .navbar { border-top: none; }
+            .navbar-nav .nav-item, .navbar-nav .nav-item:first-child, .contact-btn-item { border: none; }
+            .navbar-collapse { padding: 1rem 0; }
+            .navbar-nav { display: block; }
+            .navbar-nav .nav-item { border: none; }
+            .navbar-nav .nav-link { padding: 1rem; font-size: 1rem; border-bottom: none; border-left: 4px solid transparent; justify-content: flex-start; }
+            .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { border-bottom-color: transparent; border-left-color: var(--primary-blue); background-color: var(--light-blue-bg); }
+            .dropdown-menu { box-shadow: none; border: none; padding-left: 1rem; background-color: transparent; }
+            .dropdown-item { padding: .5rem 1rem; }
+            .nav-item.contact-btn-item .contact-btn {
+                margin-top: 1rem; width: 100%; padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 50px !important;
+                background-color: var(--primary-blue) !important; border: none !important;
+            }
+            .nav-item.contact-btn-item .contact-btn:hover { background-color: #24305a !important; }
+        }
+        @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        padding: 0 5% 0 5%;
+    }
+}
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .media-box { height: 160px; }
+  .media-img { max-height: 100px; }
+}
+
+
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
+
+    <main>
+        <!-- Hero Section --><div class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 wow animate__animated animate__fadeInLeft">
+                        <img src="images/AdvanceCombined_Logo.png" alt="Benchmark Advance Adelante Logo" class="mb-4" style="max-width: 300px;">
+                        <h1 class="display-5 mb-3">The <strong>Knowledge-Based</strong> Literacy Solution</h1>
+                        <p class="lead mb-4">That Nurtures Growth and Success in All Students</p>
+                        <div class="d-flex hero-buttons">
+                            <a href="#" class="btn btn-primary  px-4 me-2"><i class="fa-solid fa-book-open me-2"></i>View Virtual Sampler</a>
+                            <a href="#" class="btn btn-outline-primary  px-4"><i class="fas fa-folder me-2"></i>Reviewer Resources</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
+                        <img src="images/bec-img1.png" alt="Student with books" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Navigation -->
+        <div id="mainNavWrapper">
+            <header>
+                <nav id="mainNav" class="navbar navbar-expand-lg">
+                    <div class="container-fluid px-0"> <!-- full-width nav -->
+                        <!-- Mobile Nav Toggle -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- Nav Links -->
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav w-100">
+                                <!-- Impact & Recognition Dropdown -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#impact-recognition" id="impactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Impact & Recognition</a>
+                                    <ul class="dropdown-menu" aria-labelledby="impactDropdown">
+                                        <li><a class="dropdown-item" href="#v-pills-endorsements" data-bs-parent-section="#impact-recognition">Third Party Endorsements</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-awards" data-bs-parent-section="#impact-recognition">Awards</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-research" data-bs-parent-section="#impact-recognition">Research & Efficacy</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-testimonials" data-bs-parent-section="#impact-recognition">Testimonials</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-news" data-bs-parent-section="#impact-recognition">In the News</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Instruction Dropdown -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#instruction" id="instructionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Instruction</a>
+                                    <ul class="dropdown-menu" aria-labelledby="instructionDropdown">
+                                        <li><a class="dropdown-item" href="#v-pills-knowledge" data-bs-parent-section="#instruction">Build Knowledge</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-phonics" data-bs-parent-section="#instruction">Explicit and Systematic Phonics</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-texts" data-bs-parent-section="#instruction">High-Quality, Authentic Texts</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-writing" data-bs-parent-section="#instruction">Integrated Writing</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-learners" data-bs-parent-section="#instruction">Meeting the Needs of All Learners</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Biliteracy Dropdown -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#biliteracy" id="biliteracyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Biliteracy</a>
+                                    <ul class="dropdown-menu" aria-labelledby="biliteracyDropdown">
+                                        <li><a class="dropdown-item" href="#v-pills-parallel" data-bs-parent-section="#biliteracy">Parallel Programs</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-dual-tools" data-bs-parent-section="#biliteracy">Tools to Support Dual Language</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-pillars" data-bs-parent-section="#biliteracy">Pillars of Dual Language</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-biliteracy-research" data-bs-parent-section="#biliteracy">Research & Efficacy</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Digital Experience Dropdown -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#digital-experience" id="digitalDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Digital Experience</a>
+                                    <ul class="dropdown-menu" aria-labelledby="digitalDropdown">
+                                        <li><a class="dropdown-item" href="#v-pills-planning" data-bs-parent-section="#digital-experience">Planning & Instruction</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-assignments" data-bs-parent-section="#digital-experience">Assignments & Interactive Learning</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-assessment" data-bs-parent-section="#digital-experience">Assessment & Reports</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-feedback" data-bs-parent-section="#digital-experience">Progress & Feedback</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Professional Learning Dropdown -->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#professional-learning" id="plDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Professional Learning</a>
+                                    <ul class="dropdown-menu" aria-labelledby="plDropdown">
+                                        <li><a class="dropdown-item" href="#v-pills-training" data-bs-parent-section="#professional-learning">Implementation & Ongoing Training</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-virtual" data-bs-parent-section="#professional-learning">On-Demand Virtual Learning</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-coaching" data-bs-parent-section="#professional-learning">Demonstration Lessons and Coaching</a></li>
+                                        <li><a class="dropdown-item" href="#v-pills-embedded" data-bs-parent-section="#professional-learning">Embedded Tools & Support</a></li>
+                                       
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#connected-solutions">Connected Solutions</a></li>
+                                <li class="nav-item contact-btn-item"><a class="contact-btn nav-link" href="#"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        <!-- Section 1: Impact & Recognition --><section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 wow animate__animated animate__fadeInUp section-intro">
+                        <h2>Impact & Recognition</h2>
+                        <h3 class="pb-3">Award-Winning, Research-Driven, Teacher Approved</h3>
+                        <p class="mb-4">Aligned with Science of Reading research, Benchmark Advance and Adelante are core language arts programs that provide a cohesive structure for the development of literacy skills and content knowledge.</p>
+                        <a target="_blank" href="https://www.benchmarkeducation.com/benchmark-advance-adelante/benchmark-advance-authors
+" class="authors-link">Meet the Authors &rarr;</a>
+                    </div>
+                    <div class="col-lg-6 mt-5 mt-lg-0 wow animate__animated animate__fadeInRight">
+                       <!-- Wistia Popover Trigger --><span class="wistia_embed wistia_async_0e1c0b94tg popover=true popoverContent=html">
+                            <a class="video-container" href="#">
+                                <img src="images/bec-img5.png" alt="Video preview of literacy program in action" class="img-fluid rounded-3">
+                                <div class="play-button" aria-label="Play Video">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <hr class="my-5">
+                <div class="row" id="impact-recognition">
+                    <!-- Left Rail Nav --><div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                        <div class="left-rail">
+                           <div class="nav flex-column nav-pills me-3" id="v-pills-impact-tab" role="tablist" aria-orientation="vertical">
+                               <button class="nav-link active" id="v-pills-endorsements-tab" data-bs-toggle="pill" data-bs-target="#v-pills-endorsements" type="button" role="tab" aria-controls="v-pills-endorsements" aria-selected="true">Third Party Endorsements</button>
+                               <button class="nav-link" id="v-pills-awards-tab" data-bs-toggle="pill" data-bs-target="#v-pills-awards" type="button" role="tab" aria-controls="v-pills-awards" aria-selected="false">Awards</button>
+                               <button class="nav-link" id="v-pills-research-tab" data-bs-toggle="pill" data-bs-target="#v-pills-research" type="button" role="tab" aria-controls="v-pills-research" aria-selected="false">Research & Efficacy</button>
+                               <button class="nav-link" id="v-pills-testimonials-tab" data-bs-toggle="pill" data-bs-target="#v-pills-testimonials" type="button" role="tab" aria-controls="v-pills-testimonials" aria-selected="false">Testimonials</button>
+                               <button class="nav-link" id="v-pills-news-tab" data-bs-toggle="pill" data-bs-target="#v-pills-news" type="button" role="tab" aria-controls="v-pills-news" aria-selected="false">In the News</button>
+                           </div>
+                        </div>
+                    </div>
+                    <!-- Right Content Pane --><div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                        <div class="tab-content" id="v-pills-impact-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-endorsements" role="tabpanel" aria-labelledby="v-pills-endorsements-tab">
+                           <!-- Third Party Endorsements -->
+<h4 class="fw-bold mb-4 text-primary">Third Party Endorsements</h4>
+
+<div class="row g-4 align-items-stretch">
+  <!-- EdReports All-Green Rating -->
+  <div class="col-md-6">
+    <div class="feature-box h-100">
+      <div class="image-box">
+        <img src="images/bec-img3.png" alt="Certified Professional Learning Partner 2025" class="feature-image img-fluid">
+      </div>
+      <h5 class="feature-title">EdReports All-Green Rating</h5>
+      <p class="feature-text">
+        Using their newest version 1.5 Review Tools, independent, nonprofit curriculum reviewer
+        EdReports rated Benchmark Advance ©2022 K–5 “green” in all three Gateways:
+        Text Quality, Building Knowledge, and Usability.
+      </p>
+      <a href="#" class="feature-link">Read the Press Release →</a>
+    </div>
+  </div>
+
+  <!-- Rivet Education Certified Provider -->
+  <div class="col-md-6">
+    <div class="feature-box h-100">
+      <div class="image-box">
+        <img src="images/bec-img2.png" alt="Rivet Education Certified Provider" class="feature-image img-fluid">
+      </div>
+      <h5 class="feature-title">Rivet Education Certified Provider</h5>
+      <p class="feature-text">
+        Following rigorous evaluation of content and HQIM expertise, Benchmark Education joins
+        Rivet’s vetted list of best curriculum-based, HQIM-aligned professional learning services
+        in the country.
+      </p>
+      <a href="#" class="feature-link">Read the Press Release →</a>
+    </div>
+  </div>
+</div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-awards" role="tabpanel" aria-labelledby="v-pills-awards-tab">
+                              
+<!-- Awards -->
+<h4 class="mb-4">Prestigious Awards. Proven Results.</h4>
+<p class="lead mb-4"><em>Benchmark Advance</em> supports high expectations and achievement for every learner. Validated by research and independent reviewers and used by students and teachers across the United States, the program provides the tools to nurture success.</p>
+
+<div class="panel panel-soft">
+  <div class="row g-4 align-items-stretch">
+    <!-- Award 1 -->
+    <div class="col-md-4">
+      <div class="award-card h-100">
+        <div class="media-box">
+          <img src="images/CODiE.png" alt="Award logo placeholder" class="media-img img-fluid">
+        </div>
+        <div class="award-body">
+          <h5 class="award-eyebrow">SIIA CODiE Award</h5>
+          <p class="award-title">Best English Language Arts Solution for PK–8</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Award 2 -->
+    <div class="col-md-4">
+      <div class="award-card h-100">
+        <div class="media-box">
+          <img src="images/Tech_Learning_Best_of_Back_to_School2024.png" alt="Award logo placeholder" class="media-img img-fluid">
+        </div>
+        <div class="award-body">
+          <h5 class="award-eyebrow">Tech &amp; Learning Award</h5>
+          <p class="award-title">Back to School – Primary Education</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Award 3 -->
+    <div class="col-md-4">
+      <div class="award-card h-100">
+        <div class="media-box">
+          <img src="images/TechLearningAward.png" alt="Award logo placeholder" class="media-img img-fluid">
+        </div>
+        <div class="award-body">
+          <h5 class="award-eyebrow">Tech &amp; Learning Award</h5>
+          <p class="award-title">Best of — Primary Education</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <figure class="quote-block mt-4">
+    <blockquote class="mb-2">
+      <span class="quote-mark" aria-hidden="true">“</span>
+      The most comprehensive, well-designed ELA program that I had the privilege of evaluating.
+      <span class="quote-mark" aria-hidden="true">”</span>
+    </blockquote>
+    <figcaption class="quote-cite">— CODiE Judge</figcaption>
+  </figure>
+</div>
+
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-research" role="tabpanel" aria-labelledby="v-pills-research-tab">
+    <h4 class="mb-4">Nationwide, Students Using Benchmark Advance Showed 2.5x Growth in Proficiency</h4>
+        <p class="mb-0">
+          Sustained gains across demographics, including English Learners and
+          <strong>Students Facing Economic Hardships</strong>.
+        </p>
+<!-- RESEARCH • compact, horizontal charts -->
+<div class="research-panel">
+  <!-- Intro (full width) -->
+  <div class="row">
+    <div class="col-12">
+      <div class="research-intro">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Top row: three mini horizontal charts -->
+  <div class="row g-3 justify-content-center">
+    <div class="col-sm-6 col-md-4">
+      <div class="chart-card">
+        <div class="chart-title text-center">All Students</div>
+        <canvas id="chartAllStudents" class="chart-canvas chart-mini"></canvas>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="chart-card">
+        <div class="chart-title text-center">English Learners</div>
+        <canvas id="chartEL" class="chart-canvas chart-mini"></canvas>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="chart-card">
+        <div class="chart-title text-center">Students Facing Economic Hardships</div>
+        <canvas id="chartEconomic" class="chart-canvas chart-mini"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom: Size of District (wide horizontal) -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="chart-card">
+        <div class="chart-title text-center">Size of District</div>
+        <canvas id="chartSize" class="chart-canvas chart-large"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footnote + CTA -->
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <p class="chart-description mb-4">
+        Grades 3–6 student results in California, Colorado, Michigan, and Minnesota districts:
+        growth in percent of students reaching proficiency using <strong>Benchmark Advance</strong>
+        vs. students using other instructional materials.
+      </p>
+      <a href="https://www.benchmarkeducation.com/research/research-library" class="btn btn-success px-4 py-2 fw-semibold">Explore the Research Library</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+                    </div>
+
+                            <div class="tab-pane fade" id="v-pills-testimonials" role="tabpanel" aria-labelledby="v-pills-testimonials">
+                               <!-- Testimonials -->
+
+<div class="testi-panel">
+
+  <div class="row align-items-center">
+    <!-- Left: Text -->
+    <div class="col-lg-6">
+                                                 <h4 class="pb-4">What Educators Are Saying</h4>
+
+      <div class="testi-copy">
+        <p class="eyebrow mb-2"></p>
+        <p class="lead mb-4">
+          Hear what teachers, assistant principals, and principals have to say about the impact of
+          <em>Benchmark Advance</em> in their classrooms.
+        </p>
+
+
+        <h6 class="fw-bold mb-2">Testimonial Quotes</h6>
+        <p class="mb-0">
+          Our adoption of the Benchmark Advance core program for grades K–5 has been a game changer! …
+          <a href="#" class="fw-semibold text-decoration-none ms-1 readmore" data-bs-toggle="modal" data-bs-target="#testimonialsModal">
+            Read more &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Right: Video -->
+    <div class="col-lg-6">
+ 
+
+     <!-- Wistia Popover Trigger --><span class="wistia_embed wistia_async_l1e2rc9v2b popover=true popoverContent=html">
+                            <a class="video-container" href="#">
+                                <img src="images/bec-What-Educators-Are-Saying-image.png" alt="Video preview of literacy program in action" class="img-fluid rounded-3">
+                                <div class="play-button" aria-label="Play Video">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </a>
+
+    </div>
+  </div>
+</div>
+<!-- Testimonials Modal -->
+<div class="modal fade" id="testimonialsModal" tabindex="-1" aria-labelledby="testimonialsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="testimonialsModalLabel">What Educators Are Saying</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="accordion" id="testimonialsAccordion">
+          <!-- 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="t1-h">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#t1" aria-expanded="true" aria-controls="t1">
+                Shanna J., Principal — Mohawk Valley School
+              </button>
+            </h2>
+            <div id="t1" class="accordion-collapse collapse show" aria-labelledby="t1-h" data-bs-parent="#testimonialsAccordion">
+              <div class="accordion-body">
+                <blockquote class="mb-0">
+                  Our adoption of the Benchmark Advance core program for grades K–5 has been a game changer! This program has helped our teachers align across the grade levels and the instruction across the grade levels is consistent. This is already making a positive impact on our student performance. The program is easy to navigate for both teachers and students and the content is interesting. Our students are more capable than we ever imagined, the level of rigor has helped our students progress. The PD support has been amazing and nicely aligned to our needs. We are very happy with this core reading adoption.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="t2-h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t2" aria-expanded="false" aria-controls="t2">
+                April P., Assistant Principal — Valley View Elementary, Campbell County
+              </button>
+            </h2>
+            <div id="t2" class="accordion-collapse collapse" aria-labelledby="t2-h" data-bs-parent="#testimonialsAccordion">
+              <div class="accordion-body">
+                <blockquote class="mb-0">
+                  Benchmark Advance has been a transformative resource in our school's approach to English Language Arts (ELA) instruction. Its structured, standards-aligned framework provides a consistent and coherent scope and sequence across grade levels, ensuring that all students, regardless of background, receive rigorous and equitable instruction.
+                  <br><br>
+                  One of the most impactful aspects of Benchmark Advance is its comprehensive approach to foundational skills. The curriculum provides explicit, systematic instruction in phonemic awareness, phonics, fluency, spelling, and word recognition, all grounded in the science of reading. Daily routines and instructional practices are embedded within the core program, supporting early readers in developing the critical skills needed for decoding and fluent reading. These components are seamlessly integrated with reading and writing instruction, enabling students to establish a strong literacy foundation while engaging with meaningful and complex texts.
+                  <br><br>
+                  With its strong focus on foundational literacy, equity, access, and academic rigor, Benchmark Advance is more than a curriculum—it’s a comprehensive literacy solution that prepares students for long-term success in reading and writing.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="t3-h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t3" aria-expanded="false" aria-controls="t3">
+                Beth B., Literacy Coach — Global Village Academy
+              </button>
+            </h2>
+            <div id="t3" class="accordion-collapse collapse" aria-labelledby="t3-h" data-bs-parent="#testimonialsAccordion">
+              <div class="accordion-body">
+                <blockquote class="mb-0">
+                  Our school implements the Benchmark Advance curriculum for grades K–6. One of the most valuable aspects of this program is the abundance of opportunities it provides for student engagement. Students are encouraged to articulate their learning through collaborative conversations with partners and in group discussions. These interactions not only foster communication skills but also deepen content understanding, with the teacher serving as a facilitator to guide learning. As a result, we have observed significant growth in student oracy and accountability, with learners taking greater ownership of their educational progress. The curriculum’s complex and engaging texts further support this development.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="t4-h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t4" aria-expanded="false" aria-controls="t4">
+                Theresa T., Director of STEAM — West Babylon School District
+              </button>
+            </h2>
+            <div id="t4" class="accordion-collapse collapse" aria-labelledby="t4-h" data-bs-parent="#testimonialsAccordion">
+              <div class="accordion-body">
+                <blockquote class="mb-0">
+                  Teachers particularly appreciate how teacher-friendly the program is. The structured support, vertical alignment, and clear scope and sequence have made instruction easier to plan and more effective—especially in supporting cross-curricular connections, such as in science. From an administrative perspective, one of the most positive outcomes has been the increased collaboration among teachers during planning. Students are responding well to the program, showing strong engagement and growing confidence in their reading skills. The consistent structure and support have contributed to improved reading proficiency across grade levels.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>   
+                                                        <div class="tab-pane fade" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news">
+<h4 class="pb-4">Benchmark Advance in the News
+</h4>
+<div class="news-panel">
+
+
+
+  <!-- Carousel -->
+  <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+    <!-- dots -->
+    <div class="carousel-indicators news-indicators p-4">
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+    </div>
+
+    <div class="carousel-inner p-3 p-sm-4">
+      <!-- 1 -->
+      <div class="carousel-item active">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">Promising Findings for Express! for EL Students</h5>
+          <p class="news-blurb">Students using Express! show statistically significant gains in reading comprehension and oral reading fluency on standardized reading tests.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/Research-Site/Attleboro+Report+Final.pdf">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">25-School District Rollout of Benchmark Advance K–5 in Georgia</h5>
+          <p class="news-blurb">Successful Houston County SD pilot leads to full-district curriculum rollout.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://www.13wmaz.com/article/news/education/houston-schools-new-reading-curriculum/93-cbbe1134-54d6-4a04-a554-29dd7649efc7">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">Significant Gains in New York’s Lockport City School District</h5>
+          <p class="news-blurb">Johns Hopkins University study shows positive results.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/benchmarkadvance/pdf/Benchmark+Lockport+brief+final.pdf">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">A Resource in Sioux City Takes Learning to a New Level</h5>
+          <p class="news-blurb">See year-one rigor, engagement, and student growth with Benchmark Advance implementation.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://www.ktiv.com/2024/12/31/building-with-benchmark-resource-sioux-city-elementary-schools-take-learning-new-level">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">Talbot Schools Launch New Reading &amp; Language Arts Program</h5>
+          <p class="news-blurb">Benchmark Advance implemented district-wide for TCPS elementary schools.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://www.stardem.com/news/local_news/talbot-schools-launch-new-reading-and-language-art-program/article_ea46b992-7797-11ef-bf39-cbab5d0dafac.html">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">Positive Results for Alpena Public Schools in Michigan</h5>
+          <p class="news-blurb">Read how Alpena Public Schools saw improvements with Benchmark Advance.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://www.thealpenanews.com/news/local-news/2024/04/alpena-public-schools-notices-improvements-with-benchmark-advance-ela-content">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">DoD Schools Surge with Benchmark Advance</h5>
+          <p class="news-blurb">DoDEA outperformed all 50 states on reading scores while using Benchmark Advance/Adelante.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://www.prnewswire.com/news-releases/department-of-defense-schools-surge-assisted-by-benchmark-education-companys-benchmark-advance-301962639.html">
+            Read Now
+          </a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="carousel-item">
+        <div class="news-card mx-auto">
+          <h5 class="news-title pt-3">Significant Growth in Palo Alto, CA</h5>
+          <p class="news-blurb">Palo Alto USD saw strong gains across targeted student groups after implementing Benchmark Advance/Adelante.</p>
+          <a class="btn btn-news" target="_blank" rel="noopener"
+             href="https://edsource.org/2023/how-any-district-can-could-move-the-needle-on-early-literacy/697137">
+            Read Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    </button>
+  </div>
+
+<div class="eyebrow-banner mt-4">
+  <div class="eyebrow-text">
+    <strong>Take a closer look at the teacher and student materials</strong>
+  </div>
+  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28"
+     target="_blank" rel="noopener" class="eyebrow-btn">
+    <i class="fa-solid fa-book-open"></i>
+    View Virtual Sampler
+  </a>
+</div>
+
+<style>
+    /* Container */
+.eyebrow-banner {
+  background-color: var(--primary-blue);
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Text */
+.eyebrow-text {
+  color: #fff;
+  font-weight: 700;
+  flex: 1;
+}
+
+/* Red rounded button */
+.eyebrow-btn {
+  background-color: #b84b43; /* that muted red from screenshot */
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.eyebrow-btn i {
+  font-size: 1rem;
+}
+
+/* Hover state: slight darken */
+.eyebrow-btn:hover {
+  background-color: #9d3e39;
+  color: #fff;
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .eyebrow-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .eyebrow-text {
+    text-align: center;
+  }
+}
+</style>
+</div>
+</div>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section 2: Instruction --><section id="instruction" class="bg-white">
+            <div class="container">
+                <div class="row section-intro">
+                       <div class="row">
+  <!-- left copy -->
+  <div class="col-lg-5 wow animate__animated animate__fadeInUp section-intro pe-5">
+    <h2>Instruction</h2>
+    <h3 class="pb-3">Impactful, Research-Based Instructional Design</h3>
+
+    <p>Aligned with the latest in Science of Reading research, <em>Benchmark Advance</em>
+      takes an integrated approach to language arts instruction.</p>
+
+    <p class="fw-bold mt-4">Purposeful Scope &amp; Sequence</p>
+    <p>Research-based scope and sequence that moves students through a systematic
+      progression of skills with spiral review to avoid decayed learning.</p>
+
+    <p class="fw-bold mt-4">Explicit Instruction with Meaningful Practice</p>
+    <p>Effective daily instruction across word recognition and language comprehension
+      skills provides opportunities for students to apply learning to real reading
+      and writing experiences.</p>
+
+    <p class="fw-bold mt-4">Built-In Differentiation</p>
+    <p>Whole-group and small-group instruction and materials support a wide range of
+      learner needs for effective and efficient use of instructional time.</p>
+  </div>
+
+  <!-- right media -->
+  <div class="col-lg-7 mt-5 mt-lg-0 wow animate__animated animate__fadeInRight pt-5">
+    <div class="instruction-media position-relative d-inline-block">
+      <img src="images/ba-instruction_img.png"
+           alt="Instructional design diagram"
+           class="img-fluid rounded-3 shadow-sm">
+      <!-- expand -->
+      <button class="expand-btn" data-bs-toggle="modal" data-bs-target="#instructionImageModal"
+              aria-label="Expand image">
+        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- modal (put right after the row) -->
+<div class="modal fade" id="instructionImageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0">
+      <button type="button" class="btn-close position-absolute end-0 m-3 z-3"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+      <img src="images/ba-instruction_img.png" alt="Instructional design diagram enlarged"
+           class="w-100 h-auto rounded-3">
+    </div>
+  </div>
+</div>
+                </div>
+                <hr class="my-5">
+                <div class="row">
+                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                        <div class="left-rail">
+                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                               <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-knowledge" type="button" role="tab">Build Knowledge</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-phonics" type="button" role="tab">Explicit and Systematic Phonics</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-texts" type="button" role="tab">High-Quality, Authentic Texts</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-writing" type="button" role="tab">Integrated Writing</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-learners" type="button" role="tab">Meeting the Needs of All Learners</button>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="v-pills-knowledge" role="tabpanel"><h4>Build Knowledge</h4><p>Content for building knowledge.</p></div>
+                            <div class="tab-pane fade" id="v-pills-phonics" role="tabpanel"><h4>Explicit and Systematic Phonics</h4><p>Content for phonics and word study.</p></div>
+                            <div class="tab-pane fade" id="v-pills-texts" role="tabpanel"><h4>High-Quality, Authentic Texts</h4><p>Content for high-quality texts.</p></div>
+                            <div class="tab-pane fade" id="v-pills-writing" role="tabpanel"><h4>Integrated Writing</h4><p>Content for integrated writing.</p></div>
+                            <div class="tab-pane fade" id="v-pills-learners" role="tabpanel"><h4>Meeting the Needs of All Learners</h4><p>Content for meeting learner needs.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Biliteracy --><section id="biliteracy">
+            <div class="container">
+                 <div class="row section-intro">
+                    <div class="col wow animate__animated animate__fadeInUp">
+
+<div class="testi-panel">
+
+  <div class="row align-items-center">
+
+    <!-- Left: Text -->
+    <div class="col-lg-6 pe-5">
+                                  <h2 class="pb-3">Biliteracy</h2>
+
+      <div class="testi-copy">
+        <p class="eyebrow mb-2"></p>
+        <p class="lead mb-4">
+          Benchmark Advance and Adelante are parallel, cohesive ELA and SLA programs. They share the same program architecture and framework, features, and components, supporting any dual language model.
+
+        </p>
+        <p class="fw-bold mt-4">Biliteracy & Bilingualism • Academic Achievement • Sociocultural Competence
+</p>
+
+<a target="_blank" href="#
+" class="authors-link">View Program Overview Brochure
+ &rarr;</a>
+
+
+    
+      </div>
+    </div>
+
+    <!-- Right: Video -->
+    <div class="col-lg-6">
+ 
+
+     <!-- Wistia Popover Trigger --><span class="wistia_embed wistia_async_fhrk7amj7i popover=true popoverContent=html">
+                            <a class="video-container" href="#">
+                                <img src="images/ba-biliteracy.jpg" alt="Video preview of literacy program in action" class="img-fluid rounded-3">
+                                <div class="play-button" aria-label="Play Video">
+                                    <i class="bi bi-play-fill"></i>
+                                </div>
+                            </a>
+
+    </div>
+  </div>
+</div>                    </div>
+                </div>
+                <hr class="my-5">
+                <div class="row">
+                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                        <div class="left-rail">
+                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                               <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-parallel" type="button" role="tab">Parallel Programs</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-dual-tools" type="button" role="tab">Tools to Support Dual Language</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-pillars" type="button" role="tab">Pillars of Dual Language</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-biliteracy-research" type="button" role="tab">Research & Efficacy</button>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel"><h4>Parallel Programs</h4><p>Content for parallel programs.</p></div>
+                            <div class="tab-pane fade" id="v-pills-dual-tools" role="tabpanel"><h4>Tools to Support Dual Language</h4><p>Content for dual language tools.</p></div>
+                            <div class="tab-pane fade" id="v-pills-pillars" role="tabpanel"><h4>Pillars of Dual Language</h4><p>Content for pillars of dual language.</p></div>
+                            <div class="tab-pane fade" id="v-pills-biliteracy-research" role="tabpanel"><h4>Research & Efficacy</h4><p>Content for biliteracy research.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Digital Experience --><section id="digital-experience" class="bg-white">
+             <div class="container">
+        <div class="row section-intro">
+  <div class="col wow animate__animated animate__fadeInUp">
+
+    <div class="testi-panel">
+      <div class="row align-items-center">
+        <!-- LEFT: Copy -->
+        <div class="col-lg-6 pe-lg-5">
+          <!-- Benchmark Universe logo -->
+          <img src="images/ba_benchmark_universe_logo.png"
+               alt="Benchmark Universe"
+               class="img-fluid bu-logo mb-3">
+
+    <h2>Digital Experience</h2>
+          <h3 class="mb-3">
+            All-in-One Digital Platform<br>for Teaching and Learning
+          </h3>
+
+          <p class="lead mb-4">
+            The award-winning digital platform supports planning, instruction, assessment, reporting, and student engagement.
+          </p>
+
+          <ul class="du-feature mb-4">
+            <li><strong>LTI Advantage Certified</strong></li>
+            <li><strong>Compatible with ClassLink, Clever, and More</strong></li>
+            <li><strong>Google Single Sign-On</strong></li>
+            <li><strong>Google Classroom Integration</strong></li>
+          </ul>
+
+          <!-- Badges -->
+          <div class="du-badges">
+            <img src="images/ba_lms_certified_data_2021_logo.png"
+                 alt="IMS Global Data Privacy Certified 2021"
+                 class="bu-badge">
+            <img src="images/ba_lms_certified_trustEd_2021_logo.png"
+                 alt="IMS Global TrustEd Apps Certified 2021"
+                 class="bu-badge">
+          </div>
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div class="col-lg-6 mt-4 mt-lg-0 d-flex align-items-center">
+          <img src="images/ba_benchmark_universe_image.jpg"
+               alt="Student using Benchmark Universe on a tablet"
+               class="img-fluid rounded-3 shadow-sm w-100">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                <hr class="my-5">
+                <div class="row">
+                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                        <div class="left-rail">
+                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                               <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-planning" type="button" role="tab">Planning & Instruction</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-assignments" type="button" role="tab">Assignments & Interactive Learning</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-assessment" type="button" role="tab">Assessment & Reports</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-feedback" type="button" role="tab">Progress & Feedback</button>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="v-pills-planning" role="tabpanel"><h4>Planning & Instruction</h4><p>Content for planning and instruction.</p></div>
+                            <div class="tab-pane fade" id="v-pills-assignments" role="tabpanel"><h4>Assignments & Interactive Learning</h4><p>Content for assignments and interactive learning.</p></div>
+                            <div class="tab-pane fade" id="v-pills-assessment" role="tabpanel"><h4>Assessment & Reports</h4><p>Content for assessment and reports.</p></div>
+                            <div class="tab-pane fade" id="v-pills-feedback" role="tabpanel"><h4>Progress & Feedback</h4><p>Content for progress and feedback.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Professional Learning --><section id="professional-learning">
+            <div class="container">
+              <div class="row section-intro">
+  <div class="col wow animate__animated animate__fadeInUp">
+
+ 
+    <div class="testi-panel">
+      <div class="row align-items-center">
+        <!-- LEFT: Copy -->
+        <div class="col-lg-6 pe-lg-5">
+        
+    <div class="row">
+      <div class="col-md-7">
+          <h2 >Professional Development &amp; Support</h2>
+  <h3 class="pb-3">
+            Flexible, Sustained Professional Learning
+          </h3> 
+      </div>
+    </div>
+          <p class="lead mb-4">
+            Benchmark Education provides a continuous partnership for dynamic,
+            curriculum-based, high-quality professional learning, as well as ongoing
+            learning and development for teachers, coaches, and administrators
+            across a range of essential topics.
+          </p>
+
+          <a target="_blank"
+             href="#"
+             class="authors-link">
+             View Professional Development Brochure &rarr;
+          </a>
+        </div>
+
+        <!-- RIGHT: Image with bounce animation -->
+        <div class="col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center align-items-center">
+          <img src="images/ba_professional_learning_2025.jpg"
+               alt="Certified Professional Learning Partner 2025"
+               class="img-fluid rounded-3 wow animate__animated animate__bounceIn"
+               data-wow-delay="0.3s">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                <hr class="my-5">
+                <div class="row">
+                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                        <div class="left-rail">
+                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                               <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-training" type="button" role="tab">Implementation & Ongoing Training</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-virtual" type="button" role="tab">On-Demand Virtual Learning</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-coaching" type="button" role="tab">Demonstration Lessons and Coaching</button>
+                               <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-embedded" type="button" role="tab">Embedded Tools & Support</button>
+                           
+                           </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="v-pills-training" role="tabpanel"><h4>Implementation & Ongoing Training</h4><p>Content for training.</p></div>
+                            <div class="tab-pane fade" id="v-pills-virtual" role="tabpanel"><h4>On-Demand Virtual Learning</h4><p>Content for virtual learning.</p></div>
+                            <div class="tab-pane fade" id="v-pills-coaching" role="tabpanel"><h4>Demonstration Lessons and Coaching</h4><p>Content for coaching.</p></div>
+                            <div class="tab-pane fade" id="v-pills-embedded" role="tabpanel"><h4>Embedded Tools & Support</h4><p>Content for embedded tools.</p></div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Connected Solutions --><section id="connected-solutions" class="bg-white">
+            <div class="container">
+              <div class="row section-intro">
+  <div class="col wow animate__animated animate__fadeInUp">
+
+      <div class="row align-items-center">
+        <!-- LEFT: Text -->
+        <div class="col-lg-6 pe-lg-5">
+              <h2>Caregiver Support</h2>
+
+          <h3 class="pb-3">Bridge Connections Between School and Home</h3>
+          <p class="mt-2">
+            Benchmark Advance enhances communication between school and home. 
+            Through Benchmark Universe, families have 24/7 access on any device 
+            to all learning resources and texts.
+          </p>
+
+          <h5 class="pb-2">Family support includes:</h5>
+          <ul class="mb-4">
+            <li><strong>Unit Welcome Letter</strong> – Available in multiple languages, these letters include fun, at-home activity suggestions that build vocabulary, comprehension, topic knowledge, and phonics and word study skills.</li>
+            <li><strong>Unit Take-Home Activity Calendar</strong> – Each unit includes three weekly activities designed to reinforce prior learning at home.</li>
+          </ul>
+
+          <p class="mb-4">
+            Check out the Benchmark Advance Family Support website, available in English and Spanish.
+          </p>
+
+          
+          <a target="_blank" href="https://www.benchmarkeducation.com/families
+" class="authors-link">Learn More
+ &rarr;</a>
+        </div>
+
+
+
+        <!-- RIGHT: Image -->
+        <div class="col-lg-6 mt-4 mt-lg-0 d-flex justify-content-center align-items-center">
+          <img src="images/ba_families.jpg"
+               alt="Family using Benchmark Advance resources at home"
+               class="img-fluid rounded-3 shadow-sm wow animate__animated animate__fadeInRight"
+               data-wow-delay="0.3s">
+        </div>
+    </div>
+  </div>
+</div>
+          <div class="eyebrow-banner mt-4">
+  <div class="eyebrow-text">
+    <strong>Take a closer look at the teacher and student materials</strong>
+  </div>
+  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28"
+     target="_blank" rel="noopener" class="eyebrow-btn">
+    <i class="fa-solid fa-book-open"></i>
+    View Virtual Sampler
+  </a>
+</div>
+                <hr class="my-5">
+         <!--        <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h4>Overview</h4>
+                        <p>Information about how Benchmark Advance connects with other solutions and platforms to create a cohesive educational ecosystem.</p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Wistia Scripts --><script src="https://fast.wistia.com/embed/medias/0e1c0b94tg.jsonp" async></script>
+    <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+
+    <!-- Bootstrap 5 JS --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- WOW.js for animations on scroll --><script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+    <!-- Custom JavaScript --><script>
+        document.addEventListener('DOMContentLoaded', function () {
+  // WOW
+  new WOW().init();
+
+  const mainNav = document.getElementById('mainNav');
+  const mainNavWrapper = document.getElementById('mainNavWrapper');
+
+  // --- Sticky nav
+  const navOffsetTop = mainNav.offsetTop;
+  function navH() { return mainNav?.offsetHeight || 0; }
+  function setWrapperHeight() { mainNavWrapper.style.height = mainNav.classList.contains('sticky-nav') ? navH() + 'px' : 'auto'; }
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > navOffsetTop) mainNav.classList.add('sticky-nav');
+    else mainNav.classList.remove('sticky-nav');
+    setWrapperHeight();
+  }, { passive: true });
+  window.addEventListener('resize', setWrapperHeight);
+  setWrapperHeight();
+
+  // --- Smooth scroll helper (scroll to a section top with offset)
+  function smoothScrollToSection(sectionSelector) {
+    const el = document.querySelector(sectionSelector);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - (navH() + 20);
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  // --- Top-level link smooth scroll (unchanged)
+  const navLinks = mainNav.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+  const dropdownToggles = mainNav.querySelectorAll('.dropdown-toggle');
+  [...navLinks, ...dropdownToggles].forEach(link => {
+    const href = link.getAttribute('href') || '';
+    link.addEventListener('click', (e) => {
+      const isToggle = link.classList.contains('dropdown-toggle');
+      if (!isToggle && href.startsWith('#')) {
+        e.preventDefault();
+        smoothScrollToSection(href);
+      } else if (isToggle && window.innerWidth < 992 && href.startsWith('#')) {
+        e.preventDefault();
+        smoothScrollToSection(href);
+      }
+    });
+  });
+
+  // --- Dropdown items: show tab, THEN scroll section to top
+  const dropdownItems = mainNav.querySelectorAll('.dropdown-item');
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const sectionSelector = item.dataset.bsParentSection; // e.g. "#instruction"
+      const pillTarget = item.getAttribute('href');          // e.g. "#v-pills-phonics"
+      const pillBtn = document.querySelector(`${sectionSelector} [data-bs-target='${pillTarget}']`);
+
+      if (pillBtn) {
+        // Scroll after the tab becomes visible (content height can change)
+        const onShown = () => {
+          pillBtn.removeEventListener('shown.bs.tab', onShown);
+          smoothScrollToSection(sectionSelector);
+        };
+        pillBtn.addEventListener('shown.bs.tab', onShown, { once: true });
+
+        const tab = bootstrap.Tab.getOrCreateInstance(pillBtn);
+        tab.show();
+      } else {
+        // Fallback: just scroll to the section
+        smoothScrollToSection(sectionSelector);
+      }
+
+      // Close the dropdown + mobile collapse if open
+      const ddToggle = item.closest('.dropdown')?.querySelector('[data-bs-toggle="dropdown"]');
+      if (ddToggle) bootstrap.Dropdown.getOrCreateInstance(ddToggle).hide();
+      const navCollapse = document.getElementById('navbarNav');
+      if (navCollapse && window.getComputedStyle(navCollapse).display !== 'none') {
+        bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false }).hide();
+      }
+    });
+  });
+});
+    </script>
+    <!-- Chart.js + DataLabels -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script>
+(function () {
+  const PRIMARY   = getComputedStyle(document.documentElement).getPropertyValue('--primary-blue').trim() || '#304077';
+  const SECONDARY = '#c03e37';
+
+  Chart.defaults.font.size = 12;
+
+  // Base settings for horizontal bars with right-end labels
+  const HBAR_BASE = {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: { color: 'rgba(0,0,0,.08)' },
+        ticks: { callback: v => v + '%' }
+      },
+      y: { grid: { display: false } }
+    },
+    layout: { padding: { top: 4, right: 28, bottom: 0, left: 8 } }, // extra room for tooltip/labels
+    plugins: {
+      legend: { display: false },
+      tooltip: { // normal tooltip; the extra right padding keeps it visible
+        intersect: false,
+        callbacks: { label: c => `${c.dataset.label}: ${c.parsed.x}%` }
+      },
+      datalabels: {
+        formatter: v => `${v}%`,
+        anchor: 'end',
+        align: 'right',
+        offset: 6,
+        color: '#111',
+        font: { weight: '700' },
+        clip: false
+      }
+    }
+  };
+
+  // Mini chart options: no negatives, a bit wider max for breathing room
+  const HBAR_MINI = {
+    ...HBAR_BASE,
+    scales: {
+      ...HBAR_BASE.scales,
+      x: {
+        ...HBAR_BASE.scales.x,
+        min: 0,
+        suggestedMax: 6.5 // space for tooltip + datalabel
+      }
+    }
+  };
+
+  // Size-of-district options: allow small negative, still give right space
+  const HBAR_SIZE = {
+    ...HBAR_BASE,
+    scales: {
+      ...HBAR_BASE.scales,
+      x: {
+        ...HBAR_BASE.scales.x,
+        min: -1,          // needed for the -0.22% bar
+        suggestedMax: 5.5 // extra breathing room to the right
+      }
+    },
+    plugins: {
+      ...HBAR_BASE.plugins,
+      legend: { display: true, position: 'bottom', labels: { boxWidth: 14 } }
+    }
+  };
+
+  function renderMini(id, bec, non) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    new Chart(el.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: [''],
+        datasets: [
+          { label: 'BEC Districts', data: [bec], backgroundColor: PRIMARY,   borderRadius: 6, barThickness: 22, categoryPercentage: 0.7, barPercentage: 0.9 },
+          { label: 'Non-BEC Districts',                   data: [non], backgroundColor: SECONDARY, borderRadius: 6, barThickness: 22, categoryPercentage: 0.7, barPercentage: 0.9 }
+        ]
+      },
+      options: HBAR_MINI,
+      plugins: [ChartDataLabels]
+    });
+  }
+
+  function renderAll() {
+    renderMini('chartAllStudents', 3.53, 1.39);
+    renderMini('chartEL',          2.15, 0.87);
+    renderMini('chartEconomic',    4.19, 2.34);
+
+    const el = document.getElementById('chartSize');
+    if (!el) return;
+
+    new Chart(el.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['1 to 599','600 to 1,199','1,200 to 2,499','2,500 to 4,999','5,000 to 9,999','10,000 to 24,999','25,000 Plus'],
+        datasets: [
+          { label: 'Benchmark Education (BEC) Districts', data: [3.92, 1.56, 2.38, 3.64, 3.74, 3.03, 3.76], backgroundColor: PRIMARY,   borderRadius: 5, barThickness: 14, categoryPercentage: 0.6, barPercentage: 0.85 },
+          { label: 'Non-BEC Districts',                   data: [0.26, -0.22, 0.33, 0.11, 0.75, 2.24, 2.42], backgroundColor: SECONDARY, borderRadius: 5, barThickness: 14, categoryPercentage: 0.6, barPercentage: 0.85 }
+        ]
+      },
+      options: HBAR_SIZE,
+      plugins: [ChartDataLabels]
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderAll);
+})();
+</script>
+</body>
+</html>
