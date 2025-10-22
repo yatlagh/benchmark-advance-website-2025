@@ -241,6 +241,59 @@
   justify-content: flex-start;
   height: 100%;
 }
+/* ===== Testimonials (match page style) ===== */
+.testimonial-carousel{position:relative;}
+.testimonial-card{
+  background:#fff;
+  border:1px solid #e2e7f0;
+  border-radius:24px;
+  padding:20px;
+  min-height:360px;
+  display:flex;
+  flex-direction:column;
+}
+.qicon{
+  font-size:3.75rem;            /* bigger quote mark */
+  color:var(--primary-blue) !important;    /* primary tint */
+  line-height:1;
+  margin-bottom:.5rem;
+  display:block;
+}
+.t-copy{
+  font-size:1.1rem;
+  line-height:1.9;
+  color:#2b2f3a;
+  margin:0 0 1.25rem 0;
+}
+.t-cite{
+  margin-top:auto;
+  color:var(--primary-blue);     /* whole line blue */
+  font-weight:500;
+}
+
+/* indicators placed below the card, no overlap */
+.testimonial-indicators{
+  position:static;               /* not over the slide */
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:.75rem;
+}
+.testimonial-indicators [data-bs-target]{
+  width:10px; height:10px;
+  border-radius:50%;
+  border:none;
+  background:rgba(0,0,0,.2);
+}
+.testimonial-indicators .active{
+  background:var(--primary-blue)!important;
+}
+
+/* responsive comfort */
+@media (max-width: 991.98px){
+  .testimonial-card{min-height:unset;padding:1.5rem;}
+  .qicon{font-size:3.25rem;}
+}
 
 .image-box {
   background-color: #fff;
@@ -518,10 +571,87 @@ ease;
             font-weight: 600; border-left: 4px solid transparent; border-radius: 0;
             background-color: transparent; transition: all 0.2s ease-in-out;
         }
-        .left-rail .nav-pills .nav-link:hover { background-color: var(--light-blue-bg); color: var(--primary-blue); }
+        .left-rail .nav-pills .nav-link:hover {  border-left-color: var(--primary-blue);
+          color: var(--primary-blue); }
         .left-rail .nav-pills .nav-link.active, .left-rail .nav-pills .show > .nav-link {
-            color: var(--primary-blue); background-color: transparent; border-left-color: var(--primary-blue);
+          color: var(--primary-blue);
+    background-color: transparent;
+    border-left-color: var(--primary-blue);
+    background: #304076;
+    color: white;
+
         }
+
+    /* ===== News section look (like screenshot) ===== */
+#v-pills-news{background:transparent;}
+.news-heading{
+  color:var(--primary-blue);
+  font-weight:800;
+  margin-bottom:1rem;
+}
+
+/* Carousel shell */
+.news-carousel{position:relative;}
+
+/* 3-up grid inside each slide */
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+  padding:1rem 0 0 0;
+}
+
+/* Tile card */
+.news-tile{
+  background:white;         /* soft blue panel */
+  border-radius:6px;
+  padding:20px;
+  box-shadow:none;
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+}
+.news-title{
+  color:#2b335f;                            /* strong headline blue */
+  font-weight:800;
+  font-size:1.2rem;
+  line-height:1.25;
+  margin:0 0 .75rem 0;
+}
+.news-blurb{
+  color:#1f2432;
+  margin-bottom:1.5rem;
+}
+.news-link{
+  margin-top:auto;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--primary-blue);
+}
+.news-link:hover{text-decoration:underline;}
+
+/* indicators – simple dots centered below, not overlapping */
+.news-dots{
+  position:static;
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:1rem;
+}
+.news-dots [data-bs-target]{
+  width:10px;height:10px;border-radius:50%;border:none;
+  background:rgba(0,0,0,.25);
+}
+.news-dots .active{background:var(--primary-blue) !important;}
+
+/* Responsive: 2 tiles on md, 1 tile on sm */
+@media (max-width: 991.98px){
+  .news-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+}
+@media (max-width: 575.98px){
+  .news-grid{grid-template-columns:1fr;}
+  .news-tile{min-height:unset;}
+}
         /* Make in-page scroll land below the sticky navbar */
 :root { --nav-height: 0px; }
 section { scroll-margin-top: calc(var(--nav-height) + 20px); }
@@ -890,7 +1020,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
   <div class="row align-items-center">
     <!-- Left: Text -->
-    <div class="col-lg-6">
+    <div class="col-lg-12">
                                                  <h4 class="pb-4">What Educators Are Saying</h4>
 
       <div class="testi-copy">
@@ -901,16 +1031,13 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
         </p>
 
 
-        <h6 class="fw-bold mb-2">Testimonial Quotes</h6>
-        <p class="mb-0">
-          Our adoption of the Benchmark Advance core program for grades K–5 has been a game changer! …
-          <a href="#" class="fw-semibold text-decoration-none ms-1 readmore" data-bs-toggle="modal" data-bs-target="#testimonialsModal">
-            Read more &rarr;
-          </a>
-        </p>
+
+        
+        
       </div>
     </div>
-
+  </div>
+<div class="row">
     <!-- Right: Video -->
     <div class="col-lg-6">
  
@@ -924,293 +1051,176 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             </a>
 
     </div>
-  </div>
-</div>
-<!-- Testimonials Modal -->
-<div class="modal fade" id="testimonialsModal" tabindex="-1" aria-labelledby="testimonialsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="testimonialsModalLabel">What Educators Are Saying</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-
-        <div class="accordion" id="testimonialsAccordion">
-          <!-- 1 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="t1-h">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#t1" aria-expanded="true" aria-controls="t1">
-                Shanna J., Principal — Mohawk Valley School
-              </button>
-            </h2>
-            <div id="t1" class="accordion-collapse collapse show" aria-labelledby="t1-h" data-bs-parent="#testimonialsAccordion">
-              <div class="accordion-body">
-                <blockquote class="mb-0">
-                  Our adoption of the Benchmark Advance core program for grades K–5 has been a game changer! This program has helped our teachers align across the grade levels and the instruction across the grade levels is consistent. This is already making a positive impact on our student performance. The program is easy to navigate for both teachers and students and the content is interesting. Our students are more capable than we ever imagined, the level of rigor has helped our students progress. The PD support has been amazing and nicely aligned to our needs. We are very happy with this core reading adoption.
-                </blockquote>
-              </div>
-            </div>
-          </div>
-
-          <!-- 2 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="t2-h">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t2" aria-expanded="false" aria-controls="t2">
-                April P., Assistant Principal — Valley View Elementary, Campbell County
-              </button>
-            </h2>
-            <div id="t2" class="accordion-collapse collapse" aria-labelledby="t2-h" data-bs-parent="#testimonialsAccordion">
-              <div class="accordion-body">
-                <blockquote class="mb-0">
-                  Benchmark Advance has been a transformative resource in our school's approach to English Language Arts (ELA) instruction. Its structured, standards-aligned framework provides a consistent and coherent scope and sequence across grade levels, ensuring that all students, regardless of background, receive rigorous and equitable instruction.
-                  <br><br>
-                  One of the most impactful aspects of Benchmark Advance is its comprehensive approach to foundational skills. The curriculum provides explicit, systematic instruction in phonemic awareness, phonics, fluency, spelling, and word recognition, all grounded in the science of reading. Daily routines and instructional practices are embedded within the core program, supporting early readers in developing the critical skills needed for decoding and fluent reading. These components are seamlessly integrated with reading and writing instruction, enabling students to establish a strong literacy foundation while engaging with meaningful and complex texts.
-                  <br><br>
-                  With its strong focus on foundational literacy, equity, access, and academic rigor, Benchmark Advance is more than a curriculum—it’s a comprehensive literacy solution that prepares students for long-term success in reading and writing.
-                </blockquote>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="t3-h">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t3" aria-expanded="false" aria-controls="t3">
-                Beth B., Literacy Coach — Global Village Academy
-              </button>
-            </h2>
-            <div id="t3" class="accordion-collapse collapse" aria-labelledby="t3-h" data-bs-parent="#testimonialsAccordion">
-              <div class="accordion-body">
-                <blockquote class="mb-0">
-                  Our school implements the Benchmark Advance curriculum for grades K–6. One of the most valuable aspects of this program is the abundance of opportunities it provides for student engagement. Students are encouraged to articulate their learning through collaborative conversations with partners and in group discussions. These interactions not only foster communication skills but also deepen content understanding, with the teacher serving as a facilitator to guide learning. As a result, we have observed significant growth in student oracy and accountability, with learners taking greater ownership of their educational progress. The curriculum’s complex and engaging texts further support this development.
-                </blockquote>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4 -->
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="t4-h">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#t4" aria-expanded="false" aria-controls="t4">
-                Theresa T., Director of STEAM — West Babylon School District
-              </button>
-            </h2>
-            <div id="t4" class="accordion-collapse collapse" aria-labelledby="t4-h" data-bs-parent="#testimonialsAccordion">
-              <div class="accordion-body">
-                <blockquote class="mb-0">
-                  Teachers particularly appreciate how teacher-friendly the program is. The structured support, vertical alignment, and clear scope and sequence have made instruction easier to plan and more effective—especially in supporting cross-curricular connections, such as in science. From an administrative perspective, one of the most positive outcomes has been the increased collaboration among teachers during planning. Students are responding well to the program, showing strong engagement and growing confidence in their reading skills. The consistent structure and support have contributed to improved reading proficiency across grade levels.
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
+    <div class="col-md-6">
+      <!-- ===== Testimonials Carousel (single sheet) ===== -->
+<div id="testiCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel" data-bs-interval="9000" aria-label="Educator Testimonials">
+  <div class="carousel-inner">
+    <!-- 1 -->
+    <div class="carousel-item active">
+      <figure class="testimonial-card mx-auto">
+        <i class="fa-solid fa-quote-left qicon" aria-hidden="true"></i>
+        <blockquote class="t-copy">
+          Our adoption of the Benchmark Advance core program for grades K–5 has been a game changer! This program has helped our teachers align across the grade levels and the instruction across the grade levels is consistent.
+        </blockquote>
+        <figcaption class="t-cite">— <strong>Shanna J.</strong>, Principal,<br> Mohawk Valley School</figcaption>
+      </figure>
     </div>
+
+    <!-- 2 -->
+    <div class="carousel-item">
+      <figure class="testimonial-card mx-auto">
+        <i class="fa-solid fa-quote-left qicon" aria-hidden="true"></i>
+        <blockquote class="t-copy">
+          Benchmark Advance has been a transformative resource for ELA. Its structured, standards-aligned framework ensures rigorous, equitable instruction and a comprehensive approach to foundational skills grounded in the science of reading.
+        </blockquote>
+        <figcaption class="t-cite">— <strong>April P.</strong>, Assistant Principal,<br> Valley View Elementary, Campbell County</figcaption>
+      </figure>
+    </div>
+
+    <!-- 3 -->
+    <div class="carousel-item">
+      <figure class="testimonial-card mx-auto">
+        <i class="fa-solid fa-quote-left qicon" aria-hidden="true"></i>
+        <blockquote class="t-copy">
+          Our school implements the Benchmark Advance curriculum for grades K–6. Students are encouraged to articulate their learning in collaborative conversations, deepening content understanding and growing oracy and accountability.
+        </blockquote>
+        <figcaption class="t-cite">— <strong>Beth B.</strong>, Literacy Coach,<br> Global Village Academy</figcaption>
+      </figure>
+    </div>
+
+    <!-- 4 -->
+    <div class="carousel-item">
+      <figure class="testimonial-card mx-auto">
+        <i class="fa-solid fa-quote-left qicon" aria-hidden="true"></i>
+        <blockquote class="t-copy">
+          Teachers appreciate how teacher-friendly the program is—structured support, vertical alignment, and a clear scope and sequence. We’ve seen increased teacher collaboration and stronger student engagement and reading proficiency.
+        </blockquote>
+        <figcaption class="t-cite">— <strong>Theresa T.</strong>, Director of STEAM,<br> West Babylon School District</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- dots (placed outside the card area so they don't crash) -->
+  <div class="carousel-indicators testimonial-indicators">
+    <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+    <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+    <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+    <button type="button" data-bs-target="#testiCarousel" data-bs-slide-to="3" aria-label="Testimonial 4"></button>
   </div>
 </div>
 
-</div>   
-                                                        <div class="tab-pane fade" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news">
-<h4 class="pb-4">Benchmark Advance in the News
-</h4>
-<div class="news-panel">
 
+  </div>
+</div>
 
+</div> 
+</div> 
 
-  <!-- Carousel -->
-  <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
-    <!-- dots -->
-    <div class="carousel-indicators news-indicators p-4">
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
-      <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
-    </div>
+<div class="tab-pane fade" id="v-pills-news" role="tabpanel" aria-labelledby="v-pills-news">
+<!-- ===== Benchmark Advance in the News end ===== -->
+ <div class="tab-content">
+<h4 class="pb-3">Benchmark Advance in the News</h4>
 
-    <div class="carousel-inner p-3 p-sm-4">
-      <!-- 1 -->
-      <div class="carousel-item active">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">Promising Findings for Express! for EL Students</h5>
+<div id="newsCarousel" class="carousel slide news-carousel" data-bs-ride="carousel" data-bs-interval="8000">
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="news-grid">
+        <article class="news-tile">
+          <h3 class="news-title">Promising Findings for Express! for EL Students</h3>
           <p class="news-blurb">Students using Express! show statistically significant gains in reading comprehension and oral reading fluency on standardized reading tests.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/Research-Site/Attleboro+Report+Final.pdf">
-            Read Now
-          </a>
-        </div>
-      </div>
+          <a class="news-link" target="_blank" rel="noopener" href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/Research-Site/Attleboro+Report+Final.pdf">Read Now →</a>
+        </article>
 
-      <!-- 2 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">25-School District Rollout of Benchmark Advance K–5 in Georgia</h5>
+        <article class="news-tile">
+          <h3 class="news-title">25-School District Rollout of Benchmark Advance K–5 in Georgia</h3>
           <p class="news-blurb">Successful Houston County SD pilot leads to full-district curriculum rollout.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://www.13wmaz.com/article/news/education/houston-schools-new-reading-curriculum/93-cbbe1134-54d6-4a04-a554-29dd7649efc7">
-            Read Now
-          </a>
-        </div>
-      </div>
+          <a class="news-link" target="_blank" rel="noopener" href="https://www.13wmaz.com/article/news/education/houston-schools-new-reading-curriculum/93-cbbe1134-54d6-4a04-a554-29dd7649efc7">Read Now →</a>
+        </article>
 
-      <!-- 3 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">Significant Gains in New York’s Lockport City School District</h5>
+        <article class="news-tile">
+          <h3 class="news-title">Significant gains seen in New York’s Lockport City School District</h3>
           <p class="news-blurb">Johns Hopkins University study shows positive results.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/benchmarkadvance/pdf/Benchmark+Lockport+brief+final.pdf">
-            Read Now
-          </a>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">A Resource in Sioux City Takes Learning to a New Level</h5>
-          <p class="news-blurb">See year-one rigor, engagement, and student growth with Benchmark Advance implementation.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://www.ktiv.com/2024/12/31/building-with-benchmark-resource-sioux-city-elementary-schools-take-learning-new-level">
-            Read Now
-          </a>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">Talbot Schools Launch New Reading &amp; Language Arts Program</h5>
-          <p class="news-blurb">Benchmark Advance implemented district-wide for TCPS elementary schools.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://www.stardem.com/news/local_news/talbot-schools-launch-new-reading-and-language-art-program/article_ea46b992-7797-11ef-bf39-cbab5d0dafac.html">
-            Read Now
-          </a>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">Positive Results for Alpena Public Schools in Michigan</h5>
-          <p class="news-blurb">Read how Alpena Public Schools saw improvements with Benchmark Advance.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://www.thealpenanews.com/news/local-news/2024/04/alpena-public-schools-notices-improvements-with-benchmark-advance-ela-content">
-            Read Now
-          </a>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">DoD Schools Surge with Benchmark Advance</h5>
-          <p class="news-blurb">DoDEA outperformed all 50 states on reading scores while using Benchmark Advance/Adelante.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://www.prnewswire.com/news-releases/department-of-defense-schools-surge-assisted-by-benchmark-education-companys-benchmark-advance-301962639.html">
-            Read Now
-          </a>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="carousel-item">
-        <div class="news-card mx-auto">
-          <h5 class="news-title pt-3">Significant Growth in Palo Alto, CA</h5>
-          <p class="news-blurb">Palo Alto USD saw strong gains across targeted student groups after implementing Benchmark Advance/Adelante.</p>
-          <a class="btn btn-news" target="_blank" rel="noopener"
-             href="https://edsource.org/2023/how-any-district-can-could-move-the-needle-on-early-literacy/697137">
-            Read Now
-          </a>
-        </div>
+          <a class="news-link" target="_blank" rel="noopener" href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/benchmarkadvance/pdf/Benchmark+Lockport+brief+final.pdf">Read Now →</a>
+        </article>
       </div>
     </div>
 
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="news-grid">
+        <article class="news-tile">
+          <h3 class="news-title">A Resource in Sioux City Takes Learning to a New Level</h3>
+          <p class="news-blurb">See year-one rigor, engagement, and student growth with Benchmark Advance implementation.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://www.ktiv.com/2024/12/31/building-with-benchmark-resource-sioux-city-elementary-schools-take-learning-new-level">Read Now →</a>
+        </article>
 
-    </button>
+        <article class="news-tile">
+          <h3 class="news-title">Talbot Schools Launch New Reading &amp; Language Arts Program</h3>
+          <p class="news-blurb">Benchmark Advance implemented district-wide for TCPS elementary schools.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://www.stardem.com/news/local_news/talbot-schools-launch-new-reading-and-language-art-program/article_ea46b992-7797-11ef-bf39-cbab5d0dafac.html">Read Now →</a>
+        </article>
+
+        <article class="news-tile">
+          <h3 class="news-title">Positive Results for Alpena Public Schools in Michigan</h3>
+          <p class="news-blurb">Read how Alpena Public Schools saw improvements with Benchmark Advance.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://www.thealpenanews.com/news/local-news/2024/04/alpena-public-schools-notices-improvements-with-benchmark-advance-ela-content">Read Now →</a>
+        </article>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="news-grid">
+        <article class="news-tile">
+          <h3 class="news-title">DoD Schools Surge with Benchmark Advance</h3>
+          <p class="news-blurb">DoDEA outperformed all 50 states on reading scores while using Benchmark Advance/Adelante.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://www.prnewswire.com/news-releases/department-of-defense-schools-surge-assisted-by-benchmark-education-companys-benchmark-advance-301962639.html">Read Now →</a>
+        </article>
+
+        <article class="news-tile">
+          <h3 class="news-title">Significant Growth in Palo Alto, CA</h3>
+          <p class="news-blurb">Palo Alto USD saw strong gains across targeted student groups after implementing Benchmark Advance/Adelante.</p>
+          <a class="news-link" target="_blank" rel="noopener" href="https://edsource.org/2023/how-any-district-can-could-move-the-needle-on-early-literacy/697137">Read Now →</a>
+        </article>
+
+        <!-- empty spacer so the last slide visually balances on large screens -->
+        <div class="news-tile news-spacer d-none d-lg-block"></div>
+      </div>
+    </div>
   </div>
 
-<div class="eyebrow-banner mt-4">
-  <div class="eyebrow-text">
-    <strong>Take a closer look at the teacher and student materials</strong>
+  <!-- dots (centered, below the tiles) -->
+  <div class="carousel-indicators news-dots">
+    <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28"
-     target="_blank" rel="noopener" class="eyebrow-btn">
-    <i class="fa-solid fa-book-open"></i>
-    View Virtual Sampler
-  </a>
-</div>
-
-<style>
-    /* Container */
-.eyebrow-banner {
-  background-color: var(--primary-blue);
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* Text */
-.eyebrow-text {
-  color: #fff;
-  font-weight: 700;
-  flex: 1;
-}
-
-/* Red rounded button */
-.eyebrow-btn {
-  background-color: #b84b43; /* that muted red from screenshot */
-  color: #fff;
-  font-weight: 700;
-  border-radius: 50px;
-  padding: 0.75rem 1.75rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.eyebrow-btn i {
-  font-size: 1rem;
-}
-
-/* Hover state: slight darken */
-.eyebrow-btn:hover {
-  background-color: #9d3e39;
-  color: #fff;
-}
-
-/* Responsive stacking */
-@media (max-width: 768px) {
-  .eyebrow-banner {
-    flex-direction: column;
-    text-align: center;
-  }
-  .eyebrow-text {
-    text-align: center;
-  }
-}
-</style>
 </div>
 </div>
+<!-- ===== Benchmark Advance in the News end ===== -->
+
+
+
+  </div>
+
+
+
+
 
 
                 </div>
+                
+            </div>
+            <div class="eyebrow-banner mt-5">
+              <div class="eyebrow-text">
+                <strong>Take a closer look at the teacher and student materials</strong>
+              </div>
+              <a href="https://info.benchmarkeducation.com/benchmark-advance-2026-national-view-virtual-samples-28"
+                 target="_blank" rel="noopener" class="eyebrow-btn">
+                <i class="fa-solid fa-book-open"></i>
+                View Virtual Sampler
+              </a>
             </div>
         </section>
 
