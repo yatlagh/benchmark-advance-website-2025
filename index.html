@@ -319,6 +319,8 @@
   margin-bottom: 0.75rem;
 }
 
+.purple-text { color: #8b3d98;}
+
 .feature-text {
   flex-grow: 1;
   margin-bottom: 1rem;
@@ -693,6 +695,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 [data-scroll-anchor="true"] { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
         .tab-content { padding-left: 1rem; }
+        .tab-content h4 { padding-top: 20px;}
         .tab-content h4, .off-tab-content h4 { font-weight: 700; color: var(--primary-blue) !important; }
         .tab-content p { font-size: 1.05rem; line-height: 1.7; }
 
@@ -743,7 +746,64 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
   .media-box { height: 160px; }
   .media-img { max-height: 100px; }
 }
+.text-purple {
+  color: #6f2da8 !important;
+}
 
+/* Large round purple check icon */
+.spiral-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #6f2da8;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 18px rgba(111, 45, 168, 0.25);
+}
+.spiral-icon i {
+  font-size: 34px;
+  line-height: 1;
+}
+
+/* Carousel indicators */
+#spiralCarousel .carousel-indicators {
+  position: static;
+  gap: 0.5rem;
+}
+#spiralCarousel .carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+}
+#spiralCarousel .carousel-indicators .active {
+  background: #2b3c7f;
+}
+
+/* Hide arrows */
+#spiralCarousel .carousel-control-prev,
+#spiralCarousel .carousel-control-next {
+  display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .spiral-section .row {
+    flex-direction: column;
+  }
+  .spiral-section .col-lg-6 {
+    margin-bottom: 1rem;
+  }
+  .spiral-icon {
+    width: 60px;
+    height: 60px;
+  }
+  .spiral-icon i {
+    font-size: 28px;
+  }
+}
 
     </style>
 </head>
@@ -869,9 +929,9 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                 </div>
                 <hr class="my-5">
                 <div class="row" id="impact-recognition">
-                    <!-- Left Rail Nav --><div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                    <!-- Left Rail Nav --><div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
-                           <div class="nav flex-column nav-pills me-3" id="v-pills-impact-tab" role="tablist" aria-orientation="vertical">
+                           <div class="nav flex-column nav-pills" id="v-pills-impact-tab" role="tablist" aria-orientation="vertical">
                                <button class="nav-link active" id="v-pills-endorsements-tab" data-bs-toggle="pill" data-bs-target="#v-pills-endorsements" type="button" role="tab" aria-controls="v-pills-endorsements" aria-selected="true">Third Party Endorsements</button>
                                <button class="nav-link" id="v-pills-awards-tab" data-bs-toggle="pill" data-bs-target="#v-pills-awards" type="button" role="tab" aria-controls="v-pills-awards" aria-selected="false">Awards</button>
                                <button class="nav-link" id="v-pills-research-tab" data-bs-toggle="pill" data-bs-target="#v-pills-research" type="button" role="tab" aria-controls="v-pills-research" aria-selected="false">Research & Efficacy</button>
@@ -880,7 +940,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <!-- Right Content Pane --><div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <!-- Right Content Pane --><div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                         <div class="tab-content" id="v-pills-impact-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-endorsements" role="tabpanel" aria-labelledby="v-pills-endorsements-tab">
                            <!-- Third Party Endorsements -->
@@ -1264,7 +1324,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
         </section>
 
 
-        <!-- Section 2: Instruction --><section id="instruction" class="bg-white">
+        <!-- Section 2: Instruction --><section  class="bg-white">
             <div class="container">
                 <div class="row section-intro">
                        <div class="row">
@@ -1318,10 +1378,10 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 </div>
                 </div>
                 <hr class="my-5">
-                <div class="row">
-                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                <div class="row" id="instruction">
+                     <div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
-                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                           <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-knowledge" type="button" role="tab">Build Knowledge</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-phonics" type="button" role="tab">Explicit and Systematic Phonics</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-texts" type="button" role="tab">High-Quality, Authentic Texts</button>
@@ -1330,13 +1390,161 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="v-pills-knowledge" role="tabpanel"><h4>Build Knowledge</h4><p>Content for building knowledge.</p></div>
-                            <div class="tab-pane fade" id="v-pills-phonics" role="tabpanel"><h4>Explicit and Systematic Phonics</h4><p>Content for phonics and word study.</p></div>
-                            <div class="tab-pane fade" id="v-pills-texts" role="tabpanel"><h4>High-Quality, Authentic Texts</h4><p>Content for high-quality texts.</p></div>
-                            <div class="tab-pane fade" id="v-pills-writing" role="tabpanel"><h4>Integrated Writing</h4><p>Content for integrated writing.</p></div>
-                            <div class="tab-pane fade" id="v-pills-learners" role="tabpanel"><h4>Meeting the Needs of All Learners</h4><p>Content for meeting learner needs.</p></div>
+                            <div class="tab-pane fade show active" id="v-pills-knowledge" role="tabpanel">
+                        
+                              <div class="row align-items-center">
+                                <div class="col-lg-6 section-intro pe-5">
+                                  <h4 class="mb-4">Build Knowledge</h4>
+                                  <p class="mb-4">
+                                    Build deep knowledge across grades through vertically aligned topics and essential questions. 
+                                    Students explore connected concepts, vocabulary, and text sets that develop comprehension, 
+                                    inquiry skills, and academic language — ensuring year-over-year growth and understanding.
+                                  </p>
+                                  <a target="_blank" 
+                                     href="https://benchmarkeducation1-my.sharepoint.com/personal/lindseybell_benchmarkeducation_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Flindseybell%5Fbenchmarkeducation%5Fcom%2FDocuments%2FBA%202%2E8%2FWebsite%2Fvertical%5Fprogression%2Epdf&parent=%2Fpersonal%2Flindseybell%5Fbenchmarkeducation%5Fcom%2FDocuments%2FBA%202%2E8%2FWebsite&ga=1" 
+                                     class="authors-link">
+                                     Download Vertical Alignment &rarr;
+                                  </a>
+                                </div>
+                              
+                                <div class="col-lg-6 mt-5 mt-lg-0 d-flex align-items-center justify-content-center">
+                                  <!-- Wistia Popover Trigger -->
+                                  <span class="wistia_embed wistia_async_xkzunp3ftx popover=true popoverContent=html">
+                                    <a class="video-container" href="#">
+                                      <img src="images/placeholder.jpg" 
+                                           alt="Build Knowledge Video Preview" 
+                                           class="img-fluid rounded-3 shadow-sm">
+                                      <div class="play-button" aria-label="Play Video">
+                                        <i class="bi bi-play-fill"></i>
+                                      </div>
+                                    </a>
+                                  </span>
+                                </div>
+                              </div>
+                              
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-phonics" role="tabpanel">
+                              <div class="spiral-section bg-white py-4">
+                                <div class="row align-items-stretch">
+                                  <h4 class="mb-4">Develop Strong Foundational Skills With Systematic, Explicit, Spiraled Instruction
+                                  </h4>
+                                  <!-- LEFT: Image -->
+                                  <div class="col-lg-6 d-flex align-items-stretch">
+                                    <div class="card w-100 border-0">
+                                      <img src="images/spiraled-instruction.jpg" 
+                                           class="card-img-top h-100 rounded-3 object-fit-cover" 
+                                           alt="Spiraled Instruction Graphic">
+                                    </div>
+                                  </div>
+                              
+                                  <!-- RIGHT: Carousel -->
+                                  <div class="col-lg-6 d-flex align-items-stretch">
+                                    <div id="spiralCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="7000">
+                                      <div class="carousel-inner h-100">
+                              
+                                        <!-- Slide 1 -->
+                                        <div class="carousel-item active h-100">
+                                          <div class="card h-100 shadow-sm border-0">
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
+                                              <h5 class="card-title text-purple fw-bold">Purposeful Scope &amp; Sequence</h5>
+                                              <p class="card-text mb-0">A clearly defined K–6 progression ensures mastery and transfer.</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                              
+                                        <!-- Slide 2 -->
+                                        <div class="carousel-item h-100">
+                                          <div class="card h-100 shadow-sm border-0">
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
+                                              <h5 class="card-title text-purple fw-bold">Explicit Teacher Modeling</h5>
+                                              <p class="card-text mb-0">Targeted and explicit modeling for the teacher, including corrective feedback.</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                              
+                                        <!-- Slide 3 -->
+                                        <div class="carousel-item h-100">
+                                          <div class="card h-100 shadow-sm border-0">
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
+                                              <h5 class="card-title text-purple fw-bold">Daily Application of Decoding &amp; Encoding</h5>
+                                              <p class="card-text mb-0">Students apply new skills immediately to build fluency and confidence.</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                              
+                                        <!-- Slide 4 -->
+                                        <div class="carousel-item h-100">
+                                          <div class="card h-100 shadow-sm border-0">
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
+                                              <h5 class="card-title text-purple fw-bold">Guided Practice with Spiral Review</h5>
+                                              <p class="card-text mb-0">Students engage in ongoing review to reinforce long-term learning.</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                              
+                                        <!-- Slide 5 -->
+                                        <div class="carousel-item h-100">
+                                          <div class="card h-100 shadow-sm border-0">
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
+                                              <h5 class="card-title text-purple fw-bold">Embedded Multimodal/Multisensory Learning</h5>
+                                              <p class="card-text mb-0">Engages multiple senses to support diverse learners.</p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                              
+                                      <!-- Indicators -->
+                                      <div class="carousel-indicators mt-3">
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="0" class="active"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="1"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="2"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="3"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="4"></button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> 
+
+                            
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-texts" role="tabpanel">
+                        <div class="row align-items-center">
+  <!-- Left: copy -->
+  <div class="col-lg-6 section-intro pe-lg-5">
+    <h4 class="mb-4">Strengthen Comprehension and Critical Thinking with Complex Text Sets</h4>
+    <p class="mb-0">
+      Text sets for each unit include above-grade level read-aloud texts, grade level
+      complex texts for whole group, and knowledge-building libraries and reader’s theater
+      for small group and independent practice.
+    </p>
+  </div>
+
+  <!-- Right: image -->
+  <div class="col-lg-6 mt-4 mt-lg-0 d-flex align-items-center justify-content-center">
+    <img
+      src="images/knowledge-building.jpg"
+      alt="Complex Text Sets diagram with knowledge-building titles"
+      class="img-fluid"
+      
+    >
+  </div>
+</div>
+                            
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-writing" role="tabpanel">
+                              <h4 class="mb-4">Develop Skilled Writers Through Integrated Writing
+                            </h4><p>Content for integrated writing.</p>
+                          <img class="fluid" src="images/integrated_writing.jpg" alt="">
+                          </div>
+                            <!-- <div class="tab-pane fade" id="v-pills-learners" role="tabpanel"><h4>Meeting the Needs of All Learners</h4><p>Content for meeting learner needs.</p></div> -->
                         </div>
                         
                     </div>
@@ -1402,9 +1610,9 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                 </div>
                 <hr class="my-5">
                 <div class="row">
-                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                     <div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
-                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                           <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-parallel" type="button" role="tab">Parallel Programs</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-dual-tools" type="button" role="tab">Tools to Support Dual Language</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-pillars" type="button" role="tab">Pillars of Dual Language</button>
@@ -1412,7 +1620,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel"><h4>Parallel Programs</h4><p>Content for parallel programs.</p></div>
                             <div class="tab-pane fade" id="v-pills-dual-tools" role="tabpanel"><h4>Tools to Support Dual Language</h4><p>Content for dual language tools.</p></div>
@@ -1486,9 +1694,9 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 </div>
                 <hr class="my-5">
                 <div class="row">
-                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                     <div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
-                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                           <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-planning" type="button" role="tab">Planning & Instruction</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-assignments" type="button" role="tab">Assignments & Interactive Learning</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-assessment" type="button" role="tab">Assessment & Reports</button>
@@ -1496,7 +1704,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="v-pills-planning" role="tabpanel"><h4>Planning & Instruction</h4><p>Content for planning and instruction.</p></div>
                             <div class="tab-pane fade" id="v-pills-assignments" role="tabpanel"><h4>Assignments & Interactive Learning</h4><p>Content for assignments and interactive learning.</p></div>
@@ -1565,9 +1773,9 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
                 <hr class="my-5">
                 <div class="row" id="professional-learning">
-                     <div class="col-lg-4 wow animate__animated animate__fadeInLeft">
+                     <div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
-                           <div class="nav flex-column nav-pills me-3" role="tablist" aria-orientation="vertical">
+                           <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
                                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#v-pills-training" type="button" role="tab">Implementation & Ongoing Training</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-virtual" type="button" role="tab">On-Demand Virtual Learning</button>
                                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#v-pills-coaching" type="button" role="tab">Demonstration Lessons and Coaching</button>
@@ -1576,7 +1784,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="v-pills-training" role="tabpanel"><h4>Implementation & Ongoing Training</h4><p>Content for training.</p></div>
                             <div class="tab-pane fade" id="v-pills-virtual" role="tabpanel"><h4>On-Demand Virtual Learning</h4><p>Content for virtual learning.</p></div>
