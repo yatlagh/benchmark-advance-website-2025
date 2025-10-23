@@ -598,6 +598,84 @@ ease;
   margin-bottom:1rem;
 }
 
+/* Centered feature cards with no hover motion */
+.feature-card {
+  background: #fff;
+  border: 1px solid #e2e7f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(48, 64, 119, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* Inner layout: icon on left, text on right */
+.feature-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 2rem 2.5rem;
+  text-align: left;
+}
+
+/* Icon styling */
+.feature-icon {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(120% 120% at 30% 20%, #7a3fd1 0%, #642ab9 70%);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(111, 45, 189, 0.25);
+}
+
+.feature-icon i {
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* Text block */
+.feature-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  max-width: 500px;
+}
+
+.feature-title {
+  margin: 0 0 0.4rem;
+  color: #5b21b6;
+  font-weight: 800;
+  font-size: clamp(1.2rem, 1rem + 0.5vw, 1.5rem);
+}
+
+.feature-text {
+  color: #2b2f3a;
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Centered layout for small screens */
+@media (max-width: 767.98px) {
+  .feature-slide {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .feature-copy {
+    text-align: center;
+    align-items: center;
+  }
+}
+
 /* Carousel shell */
 .news-carousel{position:relative;}
 
@@ -664,6 +742,7 @@ ease;
     transition: background-color 0.3s 
 ease;
 }
+
 .news-link:hover{text-decoration:underline;}
 
 /* indicators – simple dots centered below, not overlapping */
@@ -679,7 +758,29 @@ ease;
   background:rgba(0,0,0,.25);
 }
 .news-dots .active{background:var(--primary-blue) !important;}
+/* White cards like your other tiles */
+.pillar-card{
+  min-height: 220px;
+  background:#fff;
+  border:1px solid #e2e7f0;
+  border-radius:12px;
+  padding:1.25rem 1.5rem;
+  box-shadow:none; /* no outer shadow per request */
+}
 
+/* Make the dots look like your existing testimonial dots */
+#pillarsCarousel .testimonial-indicators{
+  position:static;
+  display:flex;
+  justify-content:center;
+  gap:.5rem;
+  margin-top:1rem;
+}
+
+/* Optional: tighter spacing on small screens */
+@media (max-width: 575.98px){
+  #pillarsCarousel .row.g-4{ --bs-gutter-y:1rem; }
+}
 /* Responsive: 2 tiles on md, 1 tile on sm */
 @media (max-width: 991.98px){
   .news-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem;}
@@ -982,7 +1083,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             <div class="tab-pane fade" id="v-pills-awards" role="tabpanel" aria-labelledby="v-pills-awards-tab">
                               
 <!-- Awards -->
-<h4 class="mb-4">Prestigious Awards. Proven Results.</h4>
+<h4 class="pb-4">Prestigious Awards. Proven Results.</h4>
 <p class="lead mb-4"><em>Benchmark Advance</em> supports high expectations and achievement for every learner. Validated by research and independent reviewers and used by students and teachers across the United States, the program provides the tools to nurture success.</p>
 
 <div class="panel panel-soft">
@@ -1040,7 +1141,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
 
                             </div>
                             <div class="tab-pane fade" id="v-pills-research" role="tabpanel" aria-labelledby="v-pills-research-tab">
-    <h4 class="mb-4">Nationwide, Students Using Benchmark Advance Showed 2.5x Growth in Proficiency</h4>
+    <h4 class="pb-4">Nationwide, Students Using Benchmark Advance Showed 2.5x Growth in Proficiency</h4>
         <p class="mb-0">
           Sustained gains across demographics, including English Learners and
           <strong>Students Facing Economic Hardships</strong>.
@@ -1243,19 +1344,19 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
     <div class="carousel-item">
       <div class="news-grid">
         <article class="news-tile">
-          <h3 class="news-title">A Resource in Sioux City Takes Learning to a New Level</h3>
+          <h5 class="news-title">A Resource in Sioux City Takes Learning to a New Level</h5>
           <p class="news-blurb">See year-one rigor, engagement, and student growth with Benchmark Advance implementation.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://www.ktiv.com/2024/12/31/building-with-benchmark-resource-sioux-city-elementary-schools-take-learning-new-level">Read Now →</a>
         </article>
 
         <article class="news-tile">
-          <h3 class="news-title">Talbot Schools Launch New Reading &amp; Language Arts Program</h3>
+          <h5 class="news-title">Talbot Schools Launch New Reading &amp; Language Arts Program</h5>
           <p class="news-blurb">Benchmark Advance implemented district-wide for TCPS elementary schools.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://www.stardem.com/news/local_news/talbot-schools-launch-new-reading-and-language-art-program/article_ea46b992-7797-11ef-bf39-cbab5d0dafac.html">Read Now →</a>
         </article>
 
         <article class="news-tile">
-          <h3 class="news-title">Positive Results for Alpena Public Schools in Michigan</h3>
+          <h5 class="news-title">Positive Results for Alpena Public Schools in Michigan</h5>
           <p class="news-blurb">Read how Alpena Public Schools saw improvements with Benchmark Advance.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://www.thealpenanews.com/news/local-news/2024/04/alpena-public-schools-notices-improvements-with-benchmark-advance-ela-content">Read Now →</a>
         </article>
@@ -1266,20 +1367,20 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
     <div class="carousel-item">
       <div class="news-grid">
         <article class="news-tile">
-          <h3 class="news-title">DoD Schools Surge with Benchmark Advance</h3>
+          <h5 class="news-title">DoD Schools Surge with Benchmark Advance</h5>
           <p class="news-blurb">DoDEA outperformed all 50 states on reading scores while using Benchmark Advance/Adelante.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://www.prnewswire.com/news-releases/department-of-defense-schools-surge-assisted-by-benchmark-education-companys-benchmark-advance-301962639.html">Read Now →</a>
         </article>
 
         <article class="news-tile">
-          <h3 class="news-title">Significant Growth in Palo Alto, CA</h3>
+          <h5 class="news-title">Significant Growth in Palo Alto, CA</h5>
           <p class="news-blurb">Palo Alto USD saw strong gains across targeted student groups after implementing Benchmark Advance/Adelante.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://edsource.org/2023/how-any-district-can-could-move-the-needle-on-early-literacy/697137">Read Now →</a>
         </article>
 
         <!-- empty spacer so the last slide visually balances on large screens -->
         <div class="news-tile">
-          <h3 class="news-title">Promising Findings for Express! for EL Students</h3>
+          <h5 class="news-title">Promising Findings for Express! for EL Students</h5>
           <p class="news-blurb">Students using Express! show statistically significant gains in reading comprehension and oral reading fluency on standardized reading tests.</p>
           <a class="news-link" target="_blank" rel="noopener" href="https://site-marketing-sites.s3.us-east-1.amazonaws.com/Research-Site/Attleboro+Report+Final.pdf">Read Now →</a>
  
@@ -1395,7 +1496,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                         
                               <div class="row align-items-center">
                                 <div class="col-lg-6 section-intro pe-5">
-                                  <h4 class="mb-4">Build Knowledge</h4>
+                                  <h4 class="pb-4">Build Knowledge</h4>
                                   <p class="mb-4">
                                     Build deep knowledge across grades through vertically aligned topics and essential questions. 
                                     Students explore connected concepts, vocabulary, and text sets that develop comprehension, 
@@ -1426,9 +1527,15 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             </div>
                             <div class="tab-pane fade" id="v-pills-phonics" role="tabpanel">
                               <div class="spiral-section bg-white py-4">
+                                <div class="row">
+                                  <div class="col-md-8">
+                                    <h4 class="pb-4">
+                                      Develop Strong Foundational Skills With Systematic, Explicit, Spiraled Instruction
+                                    </h4>
+                                  </div>
+                                </div>
                                 <div class="row align-items-stretch">
-                                  <h4 class="mb-4">Develop Strong Foundational Skills With Systematic, Explicit, Spiraled Instruction
-                                  </h4>
+            
                                   <!-- LEFT: Image -->
                                   <div class="col-lg-6 d-flex align-items-stretch">
                                     <div class="card w-100 border-0">
@@ -1442,83 +1549,95 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                                   <div class="col-lg-6 d-flex align-items-stretch">
                                     <div id="spiralCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="7000">
                                       <div class="carousel-inner h-100">
-                              
+                                  
                                         <!-- Slide 1 -->
                                         <div class="carousel-item active h-100">
-                                          <div class="card h-100 shadow-sm border-0">
-                                            <div class="card-body d-flex flex-column justify-content-center">
-                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
-                                              <h5 class="card-title text-purple fw-bold">Purposeful Scope &amp; Sequence</h5>
-                                              <p class="card-text mb-0">A clearly defined K–6 progression ensures mastery and transfer.</p>
+                                          <div class="card feature-card h-100">
+                                            <div class="feature-slide">
+                                              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                                              <div class="feature-copy">
+                                                <h5 class="feature-title">Purposeful Scope &amp; Sequence</h5>
+                                                <p class="feature-text mb-0">A clearly defined K–6 progression ensures mastery and transfer.</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
-                              
+                                  
                                         <!-- Slide 2 -->
                                         <div class="carousel-item h-100">
-                                          <div class="card h-100 shadow-sm border-0">
-                                            <div class="card-body d-flex flex-column justify-content-center">
-                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
-                                              <h5 class="card-title text-purple fw-bold">Explicit Teacher Modeling</h5>
-                                              <p class="card-text mb-0">Targeted and explicit modeling for the teacher, including corrective feedback.</p>
+                                          <div class="card feature-card h-100">
+                                            <div class="feature-slide">
+                                              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                                              <div class="feature-copy">
+                                                <h5 class="feature-title">Explicit Teacher Modeling</h5>
+                                                <p class="feature-text mb-0">Targeted and explicit modeling for the teacher, including corrective feedback.</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
-                              
+                                  
                                         <!-- Slide 3 -->
                                         <div class="carousel-item h-100">
-                                          <div class="card h-100 shadow-sm border-0">
-                                            <div class="card-body d-flex flex-column justify-content-center">
-                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
-                                              <h5 class="card-title text-purple fw-bold">Daily Application of Decoding &amp; Encoding</h5>
-                                              <p class="card-text mb-0">Students apply new skills immediately to build fluency and confidence.</p>
+                                          <div class="card feature-card h-100">
+                                            <div class="feature-slide">
+                                              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                                              <div class="feature-copy">
+                                                <h5 class="feature-title">Daily Application of Decoding &amp; Encoding</h5>
+                                                <p class="feature-text mb-0">Students apply new skills immediately to build fluency and confidence.</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
-                              
+                                  
                                         <!-- Slide 4 -->
                                         <div class="carousel-item h-100">
-                                          <div class="card h-100 shadow-sm border-0">
-                                            <div class="card-body d-flex flex-column justify-content-center">
-                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
-                                              <h5 class="card-title text-purple fw-bold">Guided Practice with Spiral Review</h5>
-                                              <p class="card-text mb-0">Students engage in ongoing review to reinforce long-term learning.</p>
+                                          <div class="card feature-card h-100">
+                                            <div class="feature-slide">
+                                              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                                              <div class="feature-copy">
+                                                <h5 class="feature-title">Guided Practice with Spiral Review</h5>
+                                                <p class="feature-text mb-0">Students engage in ongoing review to reinforce long-term learning.</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
-                              
+                                  
                                         <!-- Slide 5 -->
                                         <div class="carousel-item h-100">
-                                          <div class="card h-100 shadow-sm border-0">
-                                            <div class="card-body d-flex flex-column justify-content-center">
-                                              <div class="spiral-icon mb-3"><i class="fa-solid fa-check"></i></div>
-                                              <h5 class="card-title text-purple fw-bold">Embedded Multimodal/Multisensory Learning</h5>
-                                              <p class="card-text mb-0">Engages multiple senses to support diverse learners.</p>
+                                          <div class="card feature-card h-100">
+                                            <div class="feature-slide">
+                                              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+                                              <div class="feature-copy">
+                                                <h5 class="feature-title">Embedded Multimodal/Multisensory Learning</h5>
+                                                <p class="feature-text mb-0">Engages multiple senses to support diverse learners.</p>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
+                                  
                                       </div>
-                              
-                                      <!-- Indicators -->
-                                      <div class="carousel-indicators mt-3">
-                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="0" class="active"></button>
-                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="1"></button>
-                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="2"></button>
-                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="3"></button>
-                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="4"></button>
+                                  
+                                      <!-- Dots like your testimonial carousel -->
+                                      <div class="carousel-indicators testimonial-indicators">
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                        <button type="button" data-bs-target="#spiralCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
                                       </div>
                                     </div>
                                   </div>
+                                         
                                 </div>
                               </div> 
 
                             
                             </div>
                             <div class="tab-pane fade" id="v-pills-texts" role="tabpanel">
-                        <div class="row align-items-center">
+                        <div class="row">
   <!-- Left: copy -->
   <div class="col-lg-6 section-intro pe-lg-5">
-    <h4 class="mb-4">Strengthen Comprehension and Critical Thinking with Complex Text Sets</h4>
+    <h4 class="pb-4">Strengthen Comprehension and Critical Thinking with Complex Text Sets</h4>
     <p class="mb-0">
       Text sets for each unit include above-grade level read-aloud texts, grade level
       complex texts for whole group, and knowledge-building libraries and reader’s theater
@@ -1527,19 +1646,40 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
   </div>
 
   <!-- Right: image -->
-  <div class="col-lg-6 mt-4 mt-lg-0 d-flex align-items-center justify-content-center">
-    <img
-      src="images/knowledge-building.jpg"
-      alt="Complex Text Sets diagram with knowledge-building titles"
-      class="img-fluid"
-      
-    >
+<!-- Image with modal trigger -->
+<div class="col-lg-6 mt-4 mt-lg-0 d-flex align-items-center justify-content-center position-relative">
+  <img
+    src="images/knowledge-building.jpg"
+    alt="Complex Text Sets diagram with knowledge-building titles"
+    class="img-fluid rounded-3"
+    style="cursor:pointer;"
+    data-bs-toggle="modal"
+    data-bs-target="#knowledgeModal"
+  >
+  <!-- Optional expand icon -->
+  <button class="expand-btn" data-bs-toggle="modal" data-bs-target="#knowledgeModal" aria-label="Expand image">
+    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="knowledgeModal" tabindex="-1" aria-labelledby="knowledgeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content border-0">
+      <button type="button" class="btn-close position-absolute end-0 m-3 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      <img
+        src="images/knowledge-building.jpg"
+        alt="Enlarged Complex Text Sets diagram"
+        class="w-100 h-auto rounded-3"
+      >
+    </div>
   </div>
+</div>
 </div>
                             
                             </div>
                             <div class="tab-pane fade" id="v-pills-writing" role="tabpanel">
-                              <h4 class="mb-4">Develop Skilled Writers Through Integrated Writing
+                              <h4 class="pb-4">Develop Skilled Writers Through Integrated Writing
                          <!-- Image block -->
 <div class="instruction-media position-relative d-inline-block">
   <img src="images/integrated_writing.jpg"
@@ -1741,11 +1881,11 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel">
                               <div class="container">
-                                <div class="row section-intro off-tab-content align-items-center">
+                                <div class="row section-intro">
                               
                                   <!-- LEFT COLUMN: TEXT -->
-                                  <div class="col-lg-6">
-                                    <h2 class="mb-4">Shared Framework and Supports Cross-Linguistic Transfer</h2>
+                                  <div class="col-lg-6 pe-lg-5">
+                                    <h4 class="pb-4">Shared Framework and Supports Cross-Linguistic Transfer</h4>
                                     <p>
                                       Benchmark Advance and Adelante work in parallel, giving teachers consistent tools and structures
                                       in both languages. Grounded in the Science of Reading, this alignment helps students transfer skills
@@ -1768,15 +1908,15 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                                     </div>
                               
                                     <!-- Cover images -->
-                                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                                      <img src="images/Y64846_TRS_V1_G1_CV.jpg"
+                                    <div class="d-flex gap-2 justify-content-center justify-content-lg-start">
+                                      <img class="img-thumbnail w-50" src="images/Y64846_TRS_V1_G1_CV.jpg"
                                            alt="Benchmark Advance Grade 1 Teacher Resource System Cover"
                                            class="img-fluid rounded-3 shadow-sm"
-                                           style="max-width: 220px;">
-                                      <img src="images/Y59026_TRS_V1_G1_FrontCover.jpg"
+                                           >
+                                      <img class="img-thumbnail w-50" src="images/Y59026_TRS_V1_G1_FrontCover.jpg"
                                            alt="Benchmark Adelante Grade 1 Teacher Resource System Cover"
                                            class="img-fluid rounded-3 shadow-sm"
-                                           style="max-width: 220px;">
+                                           >
                                     </div>
                                   </div>
                               
@@ -1798,11 +1938,11 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             </div>
                             <div class="tab-pane fade" id="v-pills-dual-tools" role="tabpanel">
                               <div class="container">
-                                <div class="row section-intro off-tab-content align-items-center">
+                                <div class="row section-intro">
                               
                                   <!-- LEFT COLUMN: TEXT -->
                                   <div class="col-lg-6 pe-lg-5">
-                                    <h2 class="mb-4">Comprehensive Tools for Planning Language and Resource Allocation</h2>
+                                    <h4 class="pb-4">Comprehensive Tools for Planning Language and Resource Allocation</h4>
                                     <p>
                                       Biliteracy Guide and Planners explicitly map instruction in Spanish & English to facilitate decision-making:
                                     </p>
@@ -1819,7 +1959,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                               
                                     <!-- Main image with modal -->
                                     <div class="instruction-media position-relative d-inline-block w-100 mb-4">
-                                      <img src="images/placeholder.jpg"
+                                      <img src="images/weekly_biliteracy.jpg"
                                            alt="Biliteracy planning chart with transfer strategies"
                                            class="img-fluid rounded-3 shadow-sm w-100">
                                       <button class="expand-btn" data-bs-toggle="modal" data-bs-target="#biliteracyModal"
@@ -1830,11 +1970,11 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                               
                                     <!-- Smaller images below -->
                                     <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                                      <img src="images/placeholder.jpg"
+                                      <img src="images/bu_library_thumbnail_X89844.jpg"
                                            alt="Biliteracy Guide cover"
                                            class="img-fluid rounded-3 shadow-sm"
                                            style="max-width: 220px;">
-                                      <img src="images/placeholder.jpg"
+                                           <img src="images/bu_library_thumbnails_X89974.jpg"
                                            alt="Biliteracy Planner cover"
                                            class="img-fluid rounded-3 shadow-sm"
                                            style="max-width: 220px;">
@@ -1850,15 +1990,117 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                                   <div class="modal-content border-0">
                                     <button type="button" class="btn-close position-absolute end-0 m-3 z-3"
                                             data-bs-dismiss="modal" aria-label="Close"></button>
-                                    <img src="images/placeholder.jpg"
+                                    <img src="images/weekly_biliteracy_xl.jpg"
                                          alt="Biliteracy planning chart enlarged"
                                          class="w-100 h-auto rounded-3">
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div class="tab-pane fade" id="v-pills-pillars" role="tabpanel"><h4>Pillars of Dual Language</h4><p>Content for pillars of dual language.</p></div>
-                            <div class="tab-pane fade" id="v-pills-biliteracy-research" role="tabpanel"><h4>Research & Efficacy</h4><p>Content for biliteracy research.</p></div>
+                            <div class="tab-pane fade" id="v-pills-pillars" role="tabpanel">
+                             <div class="row">
+                              <div class="col-md-8">
+                                <h4 class="pb-4">Instruction and Resources Support the Pillars of Dual Language Education
+                                </h4>
+                              </div>
+                             </div>
+                              <!-- Pillars (3x3) -->
+<div id="pillarsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000" aria-label="Pillars of Dual Language">
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 fw-bold">Standards-based instruction</h5>
+            <p class="mb-0">Is integrated within aligned units and lesson structures.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 fw-bold">Parity of resources</h5>
+            <p class="mb-0">Digital and print address key differences in languages and authentic literature.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 fw-bold">Powerful technology</h5>
+            <p class="mb-0">Delivers multisensory experiences, eAssessments, and a multilingual glossary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 bw fw-bold">Dual language support</h5>
+            <p class="mb-0">Includes customized language and resource allocation training.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 fw-bold">Sociocultural development</h5>
+            <p class="mb-0">Helps all students feel comfortable, confident, and eager to learn.</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pillar-card h-100">
+            <h5 class="mb-2 fw-bold">Home–school connections</h5>
+            <p class="mb-0">Celebrate diversity and empower parents to support their children’s learning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dots (match your testimonial indicators) -->
+  <div class="carousel-indicators testimonial-indicators">
+    <button type="button" data-bs-target="#pillarsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#pillarsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+  </div>
+
+  <!-- Hide arrows entirely -->
+  <button class="carousel-control-prev d-none" type="button" data-bs-target="#pillarsCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next d-none" type="button" data-bs-target="#pillarsCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+  </button>
+</div>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-biliteracy-research" role="tabpanel">
+                              <div class="row align-items-center">
+                                <!-- Left: copy -->
+                                <div class="col-lg-6 section-intro pe-lg-5">
+                                  <h4 class="pb-4">Benchmark Dual Language Learner Students Outperform Monolingual Students
+                                  </h4>
+                                  <p class="mb-0">
+                                    A Chula Vista school implemented Benchmark Advance and Adelante with 42 students in dual-language classrooms and 31 students in Benchmark Advance monolingual classrooms. After 2 years, dual language students significantly outperformed monolingual peers on the CAASPP ELA test, despite no differences at baseline.
+
+                                  </p>
+                                  <a target="_blank"
+                                  href="https://www.benchmarkeducation.com/research-library 
+                                  "
+                                  class="authors-link">
+                                  Explore the Research Library &rarr;
+                               </a>
+                                </div>
+                              
+                                <!-- Right: image -->
+                                <div class="col-lg-6 mt-4 mt-lg-0 d-flex align-items-center justify-content-center">
+                                  <div class="chart-card mt-3">
+                                    <div class="chart-title text-center">
+                                      Dual Language vs. Monolingual (CAASPP ELA Mean Scale Score)
+                                    </div>
+                                    <canvas id="chartDualVsMono" class="chart-canvas chart-large"></canvas>
+                                  </div>
+                                 
+                                </div>
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2201,8 +2443,87 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
     <!-- Chart.js + DataLabels -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-
 <script>
+  // chart 
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('chartDualVsMono');
+    if (!el) return;
+  
+    // Make sure the plugin is registered (Chart.js v4)
+    if (typeof ChartDataLabels !== 'undefined') {
+      Chart.register(ChartDataLabels);
+    }
+  
+    // Pull brand color; fall back if CSS variable is missing.
+    var PRIMARY = getComputedStyle(document.documentElement)
+                    .getPropertyValue('--primary-blue').trim() || '#304077';
+    var BLUE_LIGHT = '#9bb8f0';
+  
+    new Chart(el.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: [''],  // no dates, single comparison band
+        datasets: [
+          {
+            label: 'Monolingual Students',
+            data: [2548.0],
+            backgroundColor: PRIMARY,
+            borderRadius: 6,
+            barThickness: 24,
+            categoryPercentage: 0.7,
+            barPercentage: 0.9
+          },
+          {
+            label: 'Dual Language Immersion Students',
+            data: [2502.7],
+            backgroundColor: BLUE_LIGHT,
+            borderRadius: 6,
+            barThickness: 24,
+            categoryPercentage: 0.7,
+            barPercentage: 0.9
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',                 // horizontal bars (matches page)
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart'        // subtle grow-in
+        },
+        layout: { padding: { top: 6, right: 28, bottom: 0, left: 8 } },
+        scales: {
+          x: {
+            beginAtZero: false,
+            suggestedMin: 2350,         // auto-fit but focused near values
+            suggestedMax: 2600,
+            grid: { color: 'rgba(0,0,0,.08)' },
+            ticks: { callback: function(v){ return v; } }
+          },
+          y: { grid: { display: false } }
+        },
+        plugins: {
+          legend: { display: true, position: 'bottom', labels: { boxWidth: 14 } },
+          tooltip: {
+            intersect: false,
+            callbacks: { label: function(c){ return c.dataset.label + ': ' + c.parsed.x; } }
+          },
+          datalabels: {
+            formatter: function(v){ return v; },
+            anchor: 'end',
+            align: 'right',
+            offset: 8,
+            color: '#111',
+            font: { weight: '700' },
+            clip: false
+          }
+        }
+      }
+    });
+  });
+// chart 
 (function () {
   const PRIMARY   = getComputedStyle(document.documentElement).getPropertyValue('--primary-blue').trim() || '#304077';
   const SECONDARY = '#c03e37';
