@@ -1737,9 +1737,65 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" data-wow-delay="0.1s">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInUp">
                         <div class="tab-content">
-                            <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel"><h4>Parallel Programs</h4><p>Content for parallel programs.</p></div>
+                            <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel">
+                              <div class="container">
+                                <div class="row section-intro off-tab-content align-items-center">
+                              
+                                  <!-- LEFT COLUMN: TEXT -->
+                                  <div class="col-lg-6 wow animate__animated animate__fadeInUp">
+                                    <h2 class="mb-4">Shared Framework and Supports Cross-Linguistic Transfer</h2>
+                                    <p>
+                                      Benchmark Advance and Adelante work in parallel, giving teachers consistent tools and structures
+                                      in both languages. Grounded in the Science of Reading, this alignment helps students transfer skills
+                                      seamlessly across English and Spanish, strengthening biliteracy and accelerating literacy growth.
+                                    </p>
+                                  </div>
+                              
+                                  <!-- RIGHT COLUMN: IMAGES -->
+                                  <div class="col-lg-6 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
+                                    <div class="instruction-media position-relative d-inline-block w-100 mb-4">
+                                      <img src="images/network-skill.jpg"
+                                           alt="Cross-Linguistic Transfer diagram showing ELA and SLA connection"
+                                           class="img-fluid rounded-3 shadow-sm w-100">
+                              
+                                      <!-- Expand button -->
+                                      <button class="expand-btn" data-bs-toggle="modal" data-bs-target="#networkModal"
+                                              aria-label="Expand image">
+                                        <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+                                      </button>
+                                    </div>
+                              
+                                    <!-- Cover images -->
+                                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                                      <img src="images/Y64846_TRS_V1_G1_CV.jpg"
+                                           alt="Benchmark Advance Grade 1 Teacher Resource System Cover"
+                                           class="img-fluid rounded-3 shadow-sm"
+                                           style="max-width: 220px;">
+                                      <img src="images/Y59026_TRS_V1_G1_FrontCover.jpg"
+                                           alt="Benchmark Adelante Grade 1 Teacher Resource System Cover"
+                                           class="img-fluid rounded-3 shadow-sm"
+                                           style="max-width: 220px;">
+                                    </div>
+                                  </div>
+                              
+                                </div>
+                              </div>
+                              
+                              <!-- MODAL -->
+                              <div class="modal fade" id="networkModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-dialog-centered">
+                                  <div class="modal-content border-0">
+                                    <button type="button" class="btn-close position-absolute end-0 m-3 z-3"
+                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <img src="images/network-skill.jpg"
+                                         alt="Cross-Linguistic Transfer diagram enlarged"
+                                         class="w-100 h-auto rounded-3">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             <div class="tab-pane fade" id="v-pills-dual-tools" role="tabpanel"><h4>Tools to Support Dual Language</h4><p>Content for dual language tools.</p></div>
                             <div class="tab-pane fade" id="v-pills-pillars" role="tabpanel"><h4>Pillars of Dual Language</h4><p>Content for pillars of dual language.</p></div>
                             <div class="tab-pane fade" id="v-pills-biliteracy-research" role="tabpanel"><h4>Research & Efficacy</h4><p>Content for biliteracy research.</p></div>
