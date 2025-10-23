@@ -1541,8 +1541,30 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                             </div>
                             <div class="tab-pane fade" id="v-pills-writing" role="tabpanel">
                               <h4 class="mb-4">Develop Skilled Writers Through Integrated Writing
-                            </h4><p>Content for integrated writing.</p>
-                          <img class="fluid" src="images/integrated_writing.jpg" alt="">
+                         <!-- Image block -->
+<div class="instruction-media position-relative d-inline-block">
+  <img src="images/integrated_writing.jpg"
+       alt="Integrated writing visual"
+       class="img-fluid">
+
+  <!-- expand -->
+  <button class="expand-btn" data-bs-toggle="modal" data-bs-target="#integratedWritingModal"
+          aria-label="Expand image">
+    <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="integratedWritingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0">
+      <button type="button" class="btn-close position-absolute end-0 m-3 z-3"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+      <img src="images/integrated_writing.jpg" alt="Integrated writing enlarged"
+           class="w-100 h-auto rounded-3">
+    </div>
+  </div>
+</div>
                           </div>
                             <!-- <div class="tab-pane fade" id="v-pills-learners" role="tabpanel"><h4>Meeting the Needs of All Learners</h4><p>Content for meeting learner needs.</p></div> -->
                         </div>
