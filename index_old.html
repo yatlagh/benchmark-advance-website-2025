@@ -25,7 +25,6 @@
             --accent-red: #C14642;
             --text-dark: #1B1F3B;
             --border-color: #dee2e6;
-            --light-gray-bg: #e6e6ec;
         }
 
         body {
@@ -89,22 +88,20 @@
 
         .nav-item a.nav-link { cursor: pointer; }
 
-.navbar-nav .nav-link {
-    width: 100%;
-    color: var(--text-dark);
-    border: none;
-    border-bottom: 4px solid transparent;
-    font-weight: 600;
-    padding: 1.5rem 1rem;
-    transition: all 0.3s ease;
-    white-space: normal; /* CHANGED from nowrap */
-    text-align: center; /* ADDED */
-    line-height: 1.2; /* ADDED */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
+        .navbar-nav .nav-link {
+            width: 100%;
+            color: var(--text-dark);
+            border: none;
+            border-bottom: 4px solid transparent;
+            font-weight: 600;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
         /* Soft container panel */
 .panel {
   border-radius: 1rem;
@@ -193,14 +190,11 @@
     border-radius: 0; /* Match left-rail border-radius */
     transition: all 0.2s ease-in-out; /* Match left-rail transition */
 }
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active, .dropdown-item:hover, .dropdown-item.active {
-    border-bottom-color: transparent; /* CHANGED - hides underline */
-    color: var(--primary-blue);
-    background-color: var(--light-gray-bg); /* CHANGED - adds background fill */
+.dropdown-item:hover, .dropdown-item:focus {
+    border-left-color: var(--primary-blue); /* Match left-rail hover */
+    color: var(--primary-blue); /* Match left-rail hover */
+    background-color: transparent; /* Override Bootstrap default */
 }
-
-
 
         /* --- Buttons --- */
         .btn {
@@ -234,7 +228,12 @@
             border-bottom-color: transparent !important;
         }
         /* Allow wrapping of nav link text to prevent overlap */
-
+.navbar-nav .nav-link {
+    white-space: normal;      /* allow text to wrap */
+    word-break: break-word;   /* break long words if needed */
+    text-align: center;       /* keep it visually balanced */
+    line-height: 1.2;         /* tighter spacing for wrapped text */
+}
 
         /* --- Hero Section --- */
         .hero { background-color: #fff; position: relative; }
@@ -588,70 +587,26 @@ ease;
         .authors-link:hover { background-color: var(--primary-blue); color: #fff; }
         
         /* --- Left Rail Navigation (Vertical Pills) --- */
-    
-        /* --- Left Rail Navigation (Vertical Pills) --- */
-.left-rail {
-    background: transparent;
-    padding: 0;
-    border-radius: 0;
-    box-shadow: none;
-}
-.left-rail .nav-pills .nav-link {
-    text-align: left;
-    padding: 1.25rem 1.5rem; /* Slightly adjusted padding */
-    color: var(--text-dark);
-    font-weight: 600;
-    border: none; /* Clear all old borders */
-    border-bottom: 1px solid var(--border-color); /* Add bottom border */
-    border-radius: 0;
+        .left-rail {
+            background: #fff; padding: 1rem 0; border-radius: 0.75rem;
+            box-shadow: 0 8px 25px rgba(48, 64, 119, 0.07);
+        }
+        .left-rail .nav-pills .nav-link {
+            text-align: left; padding: 1rem 1.5rem; color: var(--text-dark);
+            font-weight: 600; border-left: 4px solid transparent; border-radius: 0;
+            background-color: transparent; transition: all 0.2s ease-in-out;
+        }
+        .left-rail .nav-pills .nav-link:hover {  border-left-color: var(--primary-blue);
+          color: var(--primary-blue); }
+        .left-rail .nav-pills .nav-link.active, .left-rail .nav-pills .show > .nav-link {
+          color: var(--primary-blue);
     background-color: transparent;
-    transition: all 0.2s ease-in-out;
-    display: flex; /* Use flexbox for chevron */
-    justify-content: space-between;
-    align-items: center;
-}
-/* Add the top line shown in your screenshot */
-.left-rail .nav-pills .nav-link:first-child {
-    border-top: 1px solid var(--border-color);
-}
+    border-left-color: var(--primary-blue);
+    background: #304076;
+    color: white;
 
-/* Chevron pseudo-element (hidden by default) */
-.left-rail .nav-pills .nav-link::after {
-    font-family: 'bootstrap-icons'; /* Use Bootstrap Icons */
-    content: '\F285'; /* This is the chevron-right icon */
-    font-weight: 700;
-    color: transparent; /* Hide chevron by default */
-    transition: color 0.2s ease-in-out;
-}
+        }
 
-/* Hover state */
-.left-rail .nav-pills .nav-link:hover {
-    color: var(--primary-blue);
-    background-color: #fff; /* White background on hover */
-}
-/* Show chevron on hover */
-.left-rail .nav-pills .nav-link:hover::after {
-    color: var(--primary-blue); /* Show chevron */
-}
-
-/* --- Left Rail - Active State (Default: for light blue bg) --- */
-.left-rail .nav-pills .nav-link.active,
-.left-rail .nav-pills .show > .nav-link {
-    color: var(--primary-blue);
-    background-color: #ffff; 
-}
-/* Show chevron when active (Applies to both styles) */
-.left-rail .nav-pills .nav-link.active::after,
-.left-rail .nav-pills .show > .nav-link::after {
-    color: var(--primary-blue);
-}
-
-/* --- Left Rail - Active State Override (for white bg sections) --- */
-section.bg-white .left-rail .nav-pills .nav-link.active,
-section.bg-white .left-rail .nav-pills .show > .nav-link {
-    background-color: var(--light-blue-bg); /* Light blue */
-}
-/* The chevron color rule from Block 1 still applies */
     /* ===== News section look (like screenshot) ===== */
 #v-pills-news{background:transparent;}
 .news-heading{
@@ -1879,7 +1834,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
             </div>
         </section>
 
-        <!-- Section 3: Biliteracy --><section>
+        <!-- Section 3: Biliteracy --><section id="biliteracy">
             <div class="container">
                  <div class="row section-intro">
                     <div class="col">
@@ -1938,7 +1893,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-9 wow animate__animated animate__fadeInRight" id="biliteracy">
+                    <div class="col-lg-9 wow animate__animated animate__fadeInRight">
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="v-pills-parallel" role="tabpanel">
                               <div class="container">
@@ -2177,7 +2132,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
             </div>
         </section>
 
-        <!-- Section 4: Digital Experience --><section  class="bg-white">
+        <!-- Section 4: Digital Experience --><section id="digital-experience" class="bg-white">
              <div class="container">
         <div class="row section-intro">
   <div class="col">
@@ -2229,7 +2184,7 @@ section { scroll-margin-top: calc(var(--nav-height) + 20px); }
   </div>
 </div>
                 <hr class="my-5">
-                <div class="row" id="digital-experience">
+                <div class="row">
                      <div class="col-lg-3 wow animate__animated animate__fadeInLeft">
                         <div class="left-rail">
                            <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
